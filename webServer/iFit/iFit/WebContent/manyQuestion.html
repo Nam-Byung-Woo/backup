@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+<!--  Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/common.css" rel="stylesheet">
+<link href="css/jssora.css" rel="stylesheet">
+<link href="css/manyQuestion.css" rel="stylesheet">
+<link href="css/backHeader.css" rel="stylesheet">
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common/backHeader.js"></script>
+<script src="js/common/saveScroll.js"></script>
+<script src="js/deviceRender.js"></script>
+
+</head>
+<body>
+	<div data-role="page" id="manyQuestionPage" class="eachPage render" data-render="padding-left,padding-right,padding-top">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false" id="backheader" class="render" data-render="height" data-render-ratio="height">
+			<span id="backBtn" data-rel="back" class="render" data-render="width,height,left,background-size" data-render-ratio="height"></span>
+			<span id="pageName" class="font-size-16 render" data-render="line-height,font-size" data-render-ratio="height">자주하는질문</span>
+			<span class="headerMargin render" data-render="height,border-top-width" data-render-ratio="height"></span>
+		</div>
+		<div class="panel-group" id="accordion" >
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title font-bold font-size-13 render" data-render="font-size,line-height">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+							아이핏이 뭔가요?<i class="indicator glyphicon glyphicon-menu-right pull-right render" data-render="line-height"></i>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse">
+					<div class="panel-body font-size-13 font-demilight render" data-render="font-size">아이핏 답변 테스트입니다.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title font-bold font-size-13 render" data-render="font-size,line-height">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							환불 신청 시 언제 환불되나요?<i class="indicator glyphicon glyphicon-menu-right pull-right render" data-render="line-height"></i>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body font-size-13 font-demilight render" data-render="font-size">환불 관련 답변</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title font-bold font-size-13 render" data-render="font-size,line-height">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+							피팅룸과 3D코디 차이점은 뭔가요?<i class="indicator glyphicon glyphicon-menu-right pull-right render" data-render="line-height"></i>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body font-size-13 font-demilight render" data-render="font-size">피팅룸과 3D코디 차이점은 2D로 코대해 볼 수도 있고, 3D로 직접 아바타를 이용하여 입어볼 수 있는 차이점이 있습니다.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title font-bold font-size-13 render" data-render="font-size,line-height">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+							3D 코디할 때 아바타를 어떻게 설정하나요?<i class="indicator glyphicon glyphicon-menu-right pull-right render" data-render="line-height"></i>
+						</a>
+					</h4>
+				</div>
+				<div id="collapse4" class="panel-collapse collapse">
+					<div class="panel-body font-size-13 font-demilight render" data-render="font-size">3D 코디와 아바타 설정</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title font-bold font-size-13 render" data-render="font-size,line-height">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+							배송 기간은 몇일정도 소요되나요?<i class="indicator glyphicon glyphicon-menu-right pull-right render" data-render="line-height"></i>
+						</a>
+					</h4>
+				</div>
+				<div id="collapse5" class="panel-collapse collapse">
+					<div class="panel-body font-size-13 font-demilight render" data-render="font-size">배송 기간 설명</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title font-bold font-size-13 render" data-render="font-size,line-height">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+							옷 세탁 방법은 무엇인가요?<i class="indicator glyphicon glyphicon-menu-right pull-right render" data-render="line-height"></i>
+						</a>
+					</h4>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse">
+					<div class="panel-body font-size-13 font-demilight render" data-render="font-size">안녕하세요. 테스트 입니다.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title font-bold font-size-13 render" data-render="font-size,line-height">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+							아이핏 고객센터 번호는 무엇인가요?<i class="indicator glyphicon glyphicon-menu-right pull-right render" data-render="line-height"></i>
+						</a>
+					</h4>
+				</div>
+				<div id="collapse7" class="panel-collapse collapse">
+					<div class="panel-body font-size-13 font-demilight render" data-render="font-size">010-1234-5678입니다.</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title font-bold font-size-13 render" data-render="font-size,line-height">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+							3D코디 옷은 어떻게 구매하나요?<i class="indicator glyphicon glyphicon-menu-right pull-right render" data-render="line-height"></i>
+						</a>
+					</h4>
+				</div>
+				<div id="collapse8" class="panel-collapse collapse">
+					<div class="panel-body font-size-13 font-demilight render" data-render="font-size">코디 옷 구매 관련 답변</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script>
+		function toggleChevron(e) {
+			$(e.target).prev('.panel-heading').find("i.indicator").toggleClass(
+					'glyphicon-menu-down glyphicon-menu-right');
+		}
+		$('#accordion').on('hidden.bs.collapse', toggleChevron);
+		$('#accordion').on('shown.bs.collapse', toggleChevron);
+	</script>
+</body>
+</html>

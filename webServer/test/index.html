@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>분석기</title>
+	<script type="text/javascript" src="public/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			realtimeClock();
+			
+			var now = new Date();
+			var yesterday = new Date(now.valueOf() - (24*60*60*1000));
+			var month = now.getMonth()+1;
+			var day = now.getDate();
+			var year = now.getFullYear();
+			var dateObj = {
+				year: year,
+				month: month,
+				day: day
+			}			
+			ajaxCall("today",dateObj, now);
+			dateObj.month = (dateObj.month) < 10 ? "0"+ (dateObj.month) : (dateObj.month);
+			dateObj.day = (dateObj.day) < 10 ? "0"+ (dateObj.day) : (dateObj.day);
+			$("#todayString").html(dateObj.year+"-"+dateObj.month+"-"+dateObj.day);
+
+			dateObj.year = yesterday.getFullYear();
+			dateObj.month = yesterday.getMonth()+1;
+			dateObj.day = yesterday.getDate();
+			ajaxCall("yesterday",dateObj, now);
+			dateObj.month = (dateObj.month) < 10 ? "0"+ (dateObj.month) : (dateObj.month);
+			dateObj.day = (dateObj.day) < 10 ? "0"+ (dateObj.day) : (dateObj.day);
+			$("#yesterdayString").html(dateObj.year+"-"+dateObj.month+"-"+dateObj.day);
+
+			inputResult();
+			statsResult();
+
+			function ajaxCall(mode, dateObj, now){
+				$.ajax({
+					type:'POST',
+					url:'index.php',
+					data:dateObj,
+					dataType:'json',
+					beforeSend: init(mode, now),
+					async: false,
+					success: function(data){
+						input_data(data, mode);
+					},
+					error: function(request, textStatus, errorThrown){
+						//에러내용확인
+						alert('error: ' + textStatus);
+					}
+				});
+			}
+
+			function init(mode, now){
+				if(mode!="today"){
+					return false;
+				}
+				var month = now.getMonth()+1;
+				var day = now.getDate();
+				var year = now.getFullYear();
+				var old = new Date(month+"/"+day+"/"+year);
+				var gap = now.getTime() - old.getTime();
+				var min_gap = gap / 1000 / 60;
+				min_gap = parseInt(min_gap);
+				
+				var round = min_gap/5;
+
+				for(var i=parseInt(round)+1; i>0; i--){
+					$("#roundNum").append('<tr id="roundNum_row_'+i+'"><td class="round_cell" id="round_'+i+'"><strong>'+i+'</strong></td></tr>');
+					$("#roundHistory1").append('<tr id="roundHistory1_row_'+i+'"><td class="oddeven_cell"><span class="odd_even_alias"></span></td><td><span class="start_point_alias"></span></td><td><span class="line_count"></span></td></tr>');
+					$("#roundHistory2").append('<tr id="roundHistory2_row_'+i+'"><td class="oddeven_cell"><span class="odd_even_alias"></span></td><td><span class="start_point_alias"></span></td><td><span class="line_count"></span></td></tr>');
+					$("#roundResult").append('<tr id="roundResult_row_'+i+'"><td><span class="odd_even_alias"></span></td><td><span class="start_point_alias"></span></td><td><span class="line_count"></span></td></tr>');
+					$("#roundResultSum").append('<tr id="roundResultSum_row_'+i+'"><td class="round_cell"><strong></strong></td></tr>');
+				}
+			}
+
+			function input_data(data, mode){
+				var objID;
+				if(mode=="today"){
+					objID = "#roundHistory2_row_";
+				}else{
+					objID = "#roundHistory1_row_";
+				}
+				for(var i=0; i<data.length; i++){
+					if(data[i].odd_even_alias=="홀"){
+						$(objID+data[i].round).find(".odd_even_alias").addClass("ODD");
+					}else{
+						$(objID+data[i].round).find(".odd_even_alias").addClass("EVEN");
+					}
+					$(objID+data[i].round).find(".odd_even_alias").html(data[i].odd_even_alias);
+					$(objID+data[i].round).find(".start_point_alias").html(data[i].start_point_alias);
+					$(objID+data[i].round).find(".line_count").html(data[i].line_count);
+				}
+			}
+
+			function inputResult(){
+				for(var i=$("#roundNum td").length; i>0; i--){
+					if( $("#roundHistory1_row_"+i).find(".odd_even_alias").html() == "" || $("#roundHistory2_row_"+i).find(".odd_even_alias").html() == "" ){
+					}else if( $("#roundHistory1_row_"+i).find(".odd_even_alias").html() == $("#roundHistory2_row_"+i).find(".odd_even_alias").html() ){
+						$("#roundResult_row_"+i).find(".odd_even_alias").html("O");
+					}else{
+						$("#roundResult_row_"+i).find(".odd_even_alias").html("X");
+					}
+
+					if( $("#roundHistory1_row_"+i).find(".start_point_alias").html() == "" || $("#roundHistory2_row_"+i).find(".start_point_alias").html() == "" ){
+					}else if( $("#roundHistory1_row_"+i).find(".start_point_alias").html() == $("#roundHistory2_row_"+i).find(".start_point_alias").html() ){
+						$("#roundResult_row_"+i).find(".start_point_alias").html("O");
+					}else{
+						$("#roundResult_row_"+i).find(".start_point_alias").html("X");
+					}
+
+					if( $("#roundHistory1_row_"+i).find(".line_count").html() == "" || $("#roundHistory2_row_"+i).find(".line_count").html() == "" ){
+					}else if( $("#roundHistory1_row_"+i).find(".line_count").html() == $("#roundHistory2_row_"+i).find(".line_count").html() ){
+						$("#roundResult_row_"+i).find(".line_count").html("O");
+					}else{
+						$("#roundResult_row_"+i).find(".line_count").html("X");
+					}
+					
+					if($("#roundResult_row_"+i).find(".odd_even_alias").html() == "" || $("#roundResult_row_"+i).find(".start_point_alias").html() == "" || $("#roundResult_row_"+i).find(".line_count").html() == ""){
+					}else if(($("#roundResult_row_"+i).find(".odd_even_alias").html() == $("#roundResult_row_"+i).find(".start_point_alias").html()) && ($("#roundResult_row_"+i).find(".start_point_alias").html() == $("#roundResult_row_"+i).find(".line_count").html())){
+						$("#roundResultSum_row_"+i).find("strong").html("O");
+					}else{
+						$("#roundResultSum_row_"+i).find("strong").html("X");
+					}
+				}
+			}
+
+			function statsResult(){
+				var count_sum = 0;
+				var count_O = 0;
+				var count_X = 0;
+				var count_O_continue = 0;
+				var count_O_continue_temp = 0;
+				var count_X_continue = 0;
+				var count_X_continue_temp = 0;
+				for(var i=$("#roundNum td").length; i>0; i--){
+					if($("#roundResultSum_row_"+i).find("strong").html() == "O"){
+						count_O++;
+					}else if($("#roundResultSum_row_"+i).find("strong").html() == "X"){
+						count_X++;
+					}
+					
+					if($("#roundResultSum_row_"+i).find("strong").html() == "O"){
+						count_O_continue_temp++;
+						if(count_X_continue_temp>count_X_continue){
+							count_X_continue = count_X_continue_temp;
+						}
+						count_X_continue_temp = 0;
+					}else if($("#roundResultSum_row_"+i).find("strong").html() == "X"){
+						count_X_continue_temp++;
+						if(count_O_continue_temp>count_O_continue){
+							count_O_continue = count_O_continue_temp;
+						}
+						count_O_continue_temp = 0;
+					}
+
+				}
+				count_sum = count_O+count_X;
+				$("#count_sum").html(count_sum);
+				$("#count_O").html(count_O+"("+((count_O/count_sum)*100).toPrecision(4)+"%)");
+				$("#count_O_avg").html((count_sum/count_O).toPrecision(3));
+				$("#count_X").html(count_X+"("+((count_X/count_sum)*100).toPrecision(4)+"%)");
+				$("#count_X_avg").html((count_sum/count_X).toPrecision(3));
+
+				$("#count_O_continue").html(count_O_continue);
+				$("#count_X_continue").html(count_X_continue);
+
+			}
+		});
+
+		function realtimeClock() {
+			$("#currentTime").html(getTimeStamp());
+			setTimeout("realtimeClock()", 1000);
+		}
+
+		function getTimeStamp() { // 24시간제
+			var d = new Date();
+			var s = leadingZeros(d.getFullYear(), 4) + '-' + leadingZeros(d.getMonth() + 1, 2) + '-' +	leadingZeros(d.getDate(), 2) + ' ' +	leadingZeros(d.getHours(), 2) + ':' + leadingZeros(d.getMinutes(), 2) + ':' + leadingZeros(d.getSeconds(), 2);
+			return s;
+		}
+
+		function leadingZeros(n, digits) {
+			var zero = '';
+			n = n.toString();
+			
+			if (n.length < digits) {
+				for (i = 0; i < digits - n.length; i++){
+					zero += '0';
+				}
+			}
+			return zero + n;
+		}
+	</script>
+	<link href="public/css/common.css" rel="stylesheet">
+	<link href="public/css/general.css" rel="stylesheet">
+</head>
+<body>
+	<div id="contents">
+		<div class="timeArea">
+			<span>현재시간 : </span><span id="currentTime">현재시간 : </span>
+			<div class="clear" style="margin-top:20px;"></div>
+			<div class="topStatsArea">
+				<table class="stats_list topStatsTable" height=20px;>
+					<colgroup>
+						<col width="8%;">
+						<col width="20%;">
+						<col width="14%;">
+						<col width="12%;">
+						<col width="20%;">
+						<col width="14%;">
+						<col width="12%;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th rowspan="2">전체</th>
+							<th colspan="3">O</th>
+							<th colspan="3">X</th>
+						</tr>
+						<tr>
+							<th>합</th>
+							<th>평균</th>
+							<th>연타</th>
+							<th>합</th>
+							<th>평균</th>
+							<th>연타</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td id="count_sum"></td>
+							<td id="count_O"></td>
+							<td id="count_O_avg"></td>
+							<td id="count_O_continue"></td>
+							<td id="count_X"></td>
+							<td id="count_X_avg"></td>
+							<td id="count_X_continue"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="topTableArea roundArea">
+				<table class="stats_list topTable">
+					<colgroup>
+						<col width="30%;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>날짜</th>
+						</tr>
+						<tr>
+							<th>회차</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="topTableArea">
+				<table class="stats_list topTable">
+					<colgroup>
+						<col width="33.333333%">
+						<col width="33.333333%">
+						<col width="33.333333%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th colspan="3" id="yesterdayString">2016-03-19</th>
+						</tr>
+						<tr>
+							<th>홀짝</th>
+							<th>출발</th>
+							<th>줄수</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="topTableArea">
+				<table class="stats_list topTable">
+					<colgroup>
+						<col width="33.333333%">
+						<col width="33.333333%">
+						<col width="33.333333%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th colspan="3" id="todayString">2016-03-20</th>
+						</tr>
+						<tr>
+							<th>홀짝</th>
+							<th>출발</th>
+							<th>줄수</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="topTableArea">
+				<table class="stats_list topTable">
+					<colgroup>
+						<col width="33.333333%">
+						<col width="33.333333%">
+						<col width="33.333333%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th colspan="3">적중확인</th>
+						</tr>
+						<tr>
+							<th>홀짝</th>
+							<th>출발</th>
+							<th>줄수</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="topResultTableArea">
+				<table class="stats_list topTable">
+					<colgroup>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>결과</th>
+						</tr>
+						<tr>
+							<th>전체</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+		<div class="dataTableArea roundArea">
+			<table class="stats_list dataTable" id="stats-main">
+				<colgroup>
+					<col width="138px">
+				</colgroup>
+				<tbody id="roundNum">
+				</tbody>
+			</table>
+		</div>
+		<div class="dataTableArea">
+			<table class="stats_list dataTable" id="stats-list1">
+				<colgroup>
+					<col width="33.333333%">
+					<col width="33.333333%">
+					<col width="33.333333%">
+				</colgroup>
+				<tbody id="roundHistory1">
+					<!--
+					<tr>
+						<td class="oddeven_cell"><span class="EVEN">짝</span></td>
+						<td><span>좌</span></td>
+						<td><span>3개</span></td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+		</div>
+		<div class="dataTableArea">
+			<table class="stats_list tables dataTable" id="stats-list2">
+				<colgroup>
+					<col width="33.333333%">
+					<col width="33.333333%">
+					<col width="33.333333%">
+				</colgroup>
+				<tbody id="roundHistory2">
+					<!--
+					<tr>
+						<td class="oddeven_cell"><span class="EVEN">짝</span></td>
+						<td><span>좌</span></td>
+						<td><span>3개</span></td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+		</div>
+		<div class="dataTableArea">
+			<table class="stats_list tables dataTable" id="stats-list2">
+				<colgroup>
+					<col width="33.333333%">
+					<col width="33.333333%">
+					<col width="33.333333%">
+				</colgroup>
+				<tbody id="roundResult">
+					<!--
+					<tr>
+						<td><span>X</span></td>
+						<td><span>O</span></td>
+						<td><span>O</span></td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+		</div>
+		<div class="dataResultTableArea">
+			<table class="stats_list tables dataResultTable" id="stats-list2">
+				<colgroup>
+				</colgroup>
+				<tbody id="roundResultSum">
+					<!--
+					<tr>
+						<td><span>X</span></td>
+					</tr>
+					-->
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

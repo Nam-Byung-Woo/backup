@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+#mainpage_middleBar{
+	height:61px;
+	margin-top: 1px;
+	color: #909090;
+	white-space: nowrap;
+	text-align: center;
+	font-size: 11px;
+	border-bottom-width: 0.3px;
+	border-bottom: groove;
+}
+.middleEach{
+	background-color:white;
+	float:left;
+	display: inline-block;
+	width: 25%;
+	height: 60px;
+	border-right-width: 0.01em;
+	border-right-style:solid;
+	border-right-color: #EAEAEA;
+}
+.middleText{
+	margin-top:-4px;
+	width:100%;
+	height: 20px;
+	margin-bottom: 0px;
+	vertical-align:top; 
+}
+.middleImg{
+	line-height:40px;
+	height: 40px;
+	margin-bottom: 0px;
+}
+.middleImg img {
+	vertical-align: middle;
+}
+
+.mainpage_mainBox{
+	background-color: white;
+	width: 100%;
+	font-size: 10px;
+}
+
+.mainpage_boxTitle{
+	font-size : 14px;
+	margin:0px;
+	padding: 10px 0px 10px 8px;
+	height: 2.5em;
+}
+.mainpage_boxContents{
+	padding: 0px 16px;;
+	overflow: auto;
+	white-space: nowrap;
+	overflow-y: hidden;
+}
+.mainpage_boxContents>div{
+	display: inline-block;
+	margin-left: -3px;
+}
+
+.mainpage_productDiv{
+	width: 104px;
+}
+.mainpage_imgDiv{
+	position:relative;
+	width: 100%;
+	height: 132px;
+	overflow: hidden;
+}
+.mainpage_imgDiv img{
+	width: 100%;
+}
+
+.mainpage_infoDiv{
+	text-align: center;
+	padding-top: 10px;
+}
+.mainpage_infoDiv p{
+	margin: 0px;
+}
+
+
+.EventBanner{
+	width: 100%;
+	padding: 5px 16px;
+}
+.EventBanner p{
+	padding: 5px 0px;
+	margin: 0px 0px 0px -8px;
+}
+.EventBanner img{
+	margin-left:-3px;
+	height: 132px;
+}

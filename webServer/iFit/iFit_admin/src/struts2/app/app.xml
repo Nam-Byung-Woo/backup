@@ -1,0 +1,64 @@
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"    
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="app" namespace="/app" extends="helpWeb">
+		<!-- GCM등록 -->
+		<action name="insertDevice" class="action.app.Device" method="insertDevice">
+			<result>/jsp/service/app/httpConnectResult.jsp</result>
+		</action>
+		
+		<!-- GCM삭제 -->
+		<action name="deleteDevice" class="action.app.Device" method="deleteDevice">
+			<result>/jsp/service/app/httpConnectResult.jsp</result>
+		</action>
+		
+		<!-- 채용정보 목록 리스트(Basic) -->
+		<action name="appHireList" class="action.app.Hire" method="hireList">
+			<result>/jsp/service/app/httpConnectResult.jsp</result>
+		</action>
+		
+		<!-- 이하는 구버전 참고용으로 사용뒤 삭제예정 -->
+		<!-- 앱 메인화면 -->
+		<action name="appMain" class="action.app.Index">
+			<result>/jsp/service/app/appMain.jsp</result>
+		</action>
+		
+		<!-- 회원정보 페이지 -->
+		<action name="appMyPage" class="action.app.Index">
+			<result>/jsp/service/app/mypage/appMyPage.jsp</result>
+		</action>
+		
+		<!-- 앱 설정화면 -->
+		<action name="appSetting" class="action.app.Index">
+			<result>/jsp/service/app/setting/appSetting.jsp</result>
+		</action>
+		
+		<!-- 채용정보 목록 리스트(Ajax) -->
+		<action name="appHireListAddressChangeAjax" class="action.app.Hire" method="hireListAddressChangeAjax">
+			<result>/jsp/common/json_result.jsp</result>
+		</action>
+		
+		<!-- 채용정보 상세 페이지(Dialog) -->
+		<action name="appHireView" class="action.app.Hire" method="hireView">
+			<result>/jsp/service/app/hire/appHireView.jsp</result>
+		</action>
+		
+		<!-- 주소관련 기본셀렉트 -->
+		<action name="make_address_select">
+			<result type="redirectAction">
+				<param name="actionName">address_select_change</param>
+				<param name="namespace">/common</param>
+				<param name="mode">${#parameters.mode}</param>
+				<param name="sido_selected">${#parameters.sido_selected}</param>
+				<param name="sigungu_selected">${#parameters.sigungu_selected}</param>
+		    </result>
+		</action>
+
+		<!--예시
+		<action name="ipApporveList" class="action.ip.IpAction" method="IpList">
+		  <result>/jsp/admin/ip/ipApporveList.jsp</result>
+		  <result name="EXCEL">/jsp/admin/ip/ipListExcelDownload.jsp</result>
+		</action>
+		-->
+	</package>
+</struts>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>3D Gallery with CSS3 and jQuery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/closetGallery.css" />
+		<script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script	src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript" src="js/jquery.gallery.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				topGallery =  $('#dg-container').gallery();
+				topGallery =  $('#dg-container2').gallery();
+			});
+		</script>
+    </head>
+    <body>
+    	<div data-role="page">
+    	<button onclick="history.back();">테스트종료</button>
+			<section id="dg-container" class="dg-container">
+				<div class="dg-wrapper">
+					<a href="#"><img src="img/closet/1.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/2.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/3.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/4.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/5.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/6.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/7.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/8.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/9.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/10.jpg" draggable="false"></a>
+					<a href="#"><img src="img/closet/11.jpg" draggable="false"></a>
+					<a href="#"><img src="img/closet/12.jpg" draggable="false"></a>
+				</div>
+				
+				
+				<!-- if you want used to arrow button(if you click the button, current image changed next or prev image), remove comments --> 
+				
+				<nav>	
+					<span class="dg-prev">&lt;</span>
+					<span class="dg-next">&gt;</span>
+				</nav>
+				
+			</section>			
+			<section id="dg-container2" class="dg-container">
+				<div class="dg-wrapper">
+					<a href="#"><img src="img/closet/1.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/2.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/3.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/4.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/5.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/6.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/7.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/8.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/9.jpg"  draggable="false"></a>
+					<a href="#"><img src="img/closet/10.jpg" draggable="false"></a>
+					<a href="#"><img src="img/closet/11.jpg" draggable="false"></a>
+					<a href="#"><img src="img/closet/12.jpg" draggable="false"></a>
+				</div>
+			</section>			
+		</div>	
+		<style>
+		#dg-container{
+			margin-top:30%;
+			margin-bottom: 20%;		
+		}
+		#dg-container2{
+			width:80%;
+		}
+		</style>
+    </body>
+</html>

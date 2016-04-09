@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+#loginPage{
+	text-align: center;
+}
+
+.inputFormatstyle{
+	margin:auto;
+   	width: 100%;
+    border: none;
+    border-width: 1px 0px;
+    background-color: white !important;
+    border-color: #dcdcdc;
+    border-style: solid;
+    line-height: 30px;
+    max-width:600px;
+	
+}
+
+#idFormat{
+	background: url(../img/mypage/loginUser.png) no-repeat scroll 20px 9px;
+    padding-left: 40px;
+    background-size: 1em;
+    margin-top : 3.5em;
+}
+
+#pwdFormat{
+	background: url(../img/mypage/loginPwd.png) no-repeat scroll 20px 9px;
+	padding-left: 40px;
+	background-size:1em;
+}
+
+#loginBtn{
+	margin-top:4em;
+	width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border: none;
+    border-style: solid;
+    border-width: 1px 0px;
+    border-color: #dcdcdc;
+    line-height: 3.5em;    
+    color: #f56c74;
+    font-weight: bold;
+    font-size: 14px;
+}
+#loginHelpOption{
+	margin-top:1em;
+	text-align: center;	
+}
+#loginHelpOption > span{
+	display: inline-block;
+    width: 30%;
+    max-width:150px;
+    padding: 0px 1em;
+    font-size: 10px;
+    color: #959595;
+    font-weight: bold
+}
+#findPwd{
+	border-style: solid;
+    border-width: 0px 1px;
+    border-color: #c9c9c9;
+}

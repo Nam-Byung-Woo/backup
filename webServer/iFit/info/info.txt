@@ -1,0 +1,29 @@
+*******************서버 정리*******************
+
+<설정파일>
+apache설정 : /etc/apache2/sites-available/000-default.conf
+				/apache2_server/iFit# vi /etc/apache2/apache2.conf 
+				/apache2_server/iFit# vi /etc/apache2/ports.conf
+*테스트 이후 apache는 제거할 예정
+
+mysql설정 : /etc/mysql/my.cnf
+tomcat설정 : /etc/tomcat7/server.xml
+tomcat로그 : /var/log/tomcat7
+tail -f /var/log/tomcat7/catalina.out
+
+
+*tomcat은 관리자와 서비스 두개로 나눌 예정
+
+
+<port>
+80 : 외부에 보여줄때만 사용
+7878 : phpMyAdmin
+7879 : iFit 웹 테스트용(80과 동일)
+7880 : iFit Admin
+7881 : Mysql
+7882 : iFit JSON통신용
+
+<DB정보>
+Database : iFit
+관리자 - iFit_Admin // dkdlvltrhksflwk!(아이핏관리자!)  
+사용자 - 

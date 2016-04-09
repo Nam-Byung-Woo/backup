@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/jssor.slider.mini.js"></script>
+<script type="text/javascript" src="js/imageSliderCustomize.js"></script>
+
+<!--  Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/common.css" rel="stylesheet">
+<link href="css/moreInfoPage.css" rel="stylesheet">
+<link href="css/backHeader.css" rel="stylesheet">
+
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/moreInfoPage.js"></script>
+<script src="js/common/backHeader.js"></script>
+<script src="js/deviceRender.js"></script>
+</head>
+<body>
+	<div data-role="page" id="moreInfoPage" class="eachPage render" data-render="padding-left,padding-right,padding-top">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false" id="backheader" class="render" data-render="height" data-render-ratio="height">
+			<span id="backBtn" data-rel="back" class="render" data-render="width,height,left,background-size" data-render-ratio="height"></span>
+			<span id="pageName" class="font-size-16 render" data-render="line-height,font-size" data-render-ratio="height">페이크 레더 점퍼</span>
+			<span class="headerMargin render" data-render="height,border-top-width" data-render-ratio="height"></span>
+		</div>
+		<div id="purchaseContent" class="render" data-render="margin-top,margin-bottom">
+			<div id="sumurryInfo" class="moreInfoEachDivWrap">
+				<div class="photoArea">
+					<div class="iconArea render" data-render="padding-top,padding-left,padding-right">
+						<img src="img/moreInfoPage/hanger.png" class="render" data-render="width">
+						<img src="img/moreInfoPage/3d_fit.png" class="fr render" data-render="width">
+					</div>					
+					<!-- 이미지 슬라이더 시작 -->
+					<div id="jssor_1" class="slider_image">
+				        <div id="jssor_1_container" class="slider_image" data-u="slides">
+				            <div data-p="225.00" style="display: none;">
+				                <img data-u="image" src="img/moreInfoPage/sample1.png" />
+				            </div>
+				            <div data-p="225.00" style="display: none;">
+				                <img data-u="image" src="img/moreInfoPage/sample1.png" />
+				            </div>
+				            <div data-p="225.00" style="display: none;">
+				                <img data-u="image" src="img/moreInfoPage/sample2.png" />
+				            </div>
+				        </div>
+				        <!-- Bullet Navigator -->
+				        <div data-u="navigator" class="jssorb05" data-autocenter="1">
+				            <!-- bullet navigator item prototype -->
+				            <div data-u="prototype"></div>
+				        </div>
+				        <!-- Arrow Navigator -->
+				        <!-- 일단보류
+				        <span data-u="arrowleft" class="jssora22l" data-autocenter="2"></span>
+				        <span data-u="arrowright" class="jssora22r" data-autocenter="2"></span>
+				         -->
+				    </div>
+				</div>
+				<div id="shareWrap" class="render" data-render="height,margin-top,margin-bottom,line-height">
+					<span id="othersLikeNo" class="render" data-render="height,line-height,font-size">
+						<img src="img/moreInfoPage/heart_good.png" class="fl render" data-render="height">
+						<p class="fl render" data-render="margin-left">231</p>
+					</span>
+					<span class="font-size-10 render" id="purchaseName" data-render="height,line-height,font-size">
+						<p>페이크 레더 점퍼</p>
+					</span>
+					<div class="clear"></div>
+					<span class="font-size-10 render" id="purchasePrice" data-render="height,line-height,font-size">
+						<p>￦36,000</p> 
+					</span>						
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div id="sampleMoreImgs">
+				<img src="img/moreInfoPage/sample_more.jpg">
+			</div>
+		
+			<div id="moreInfoReply" class="render" data-render="margin-bottom">
+				<div id="imageArea" class ="centerImage render" data-render="height">
+					<img src="img/moreInfoPage/reply.png" class="render" data-render="height" />
+				</div>
+				<div class="eachMoreInfoReplyWrap render" data-render="padding-left,padding-right,height,margin-bottom,border-top-width,border-bottom-width">					
+					<div class="moreInfoReplyHeart render" data-render="top">
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height">
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_off.png" class="fl render" data-render="height">
+					</div>
+					<div class="moreInfoReplyWriter render" data-render="top,height,line-height">
+						<p class="font-medium font-size-13 render fl" data-render="font-size">customer</p>
+						<p class="font-size-11 render fl" data-render="font-size">2016. 03. 15</p>
+					</div>
+					<div class="moreInfoReplyContent render" data-render="top,height,line-height,margin-right">
+						<p class="font-size-11 render" data-render="font-size">봉제상태가 매우 좋습니다. 잘입을게요~</p>
+					</div>
+				</div>
+				<div class="eachMoreInfoReplyWrap render" data-render="padding-left,padding-right,height,margin-bottom,border-top-width,border-bottom-width">				
+					<div class="moreInfoReplyHeart render" data-render="top">
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height">
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_off.png" class="fl render" data-render="height">
+					</div>
+					<div class="moreInfoReplyWriter render" data-render="top,height,line-height">
+						<p class="font-medium font-size-13 render fl" data-render="font-size">customer</p>
+						<p class="font-size-11 render fl" data-render="font-size">2016. 03. 15</p>
+					</div>
+					<div class="moreInfoReplyContent render" data-render="top,height,line-height,margin-right">
+						<p class="font-size-11 render" data-render="font-size">봉제상태가 매우 좋습니다. 잘입을게요~</p>
+					</div>
+				</div>
+				<div class="eachMoreInfoReplyWrap render" data-render="padding-left,padding-right,height,margin-bottom,border-top-width,border-bottom-width">					
+					<div class="moreInfoReplyHeart render" data-render="top">
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height">
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_off.png" class="fl render" data-render="height">
+					</div>
+					<div class="moreInfoReplyWriter render" data-render="top,height,line-height">
+						<p class="font-medium font-size-13 render fl" data-render="font-size,margin-right">customer</p>
+						<p class="font-size-11 render fl" data-render="font-size">2016. 03. 15</p>
+					</div>
+					<div class="moreInfoReplyContent render" data-render="top,height,line-height">
+						<p class="font-size-11 render" data-render="font-size">봉제상태가 매우 좋습니다. 잘입을게요~</p>
+					</div>
+				</div>
+				<div class="eachMoreInfoReplyWrap render" data-render="padding-left,padding-right,height,margin-bottom,border-top-width,border-bottom-width">					
+					<div class="moreInfoReplyHeart render" data-render="top">
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height">
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_on.png" class="fl render" data-render="height"> 
+						<img src="img/moreInfoPage/heart_off.png" class="fl render" data-render="height">
+					</div>
+					<div class="moreInfoReplyWriter render" data-render="top,height,line-height">
+						<p class="font-medium font-size-13 render fl " data-render="font-size,margin-right">customer</p>
+						<p class="font-size-11 render fl" data-render="font-size">2016. 03. 15</p>
+					</div>
+					<div class="moreInfoReplyContent render" data-render="top,height,line-height">
+						<p class="font-size-11 render" data-render="font-size">봉제상태가 매우 좋습니다. 잘입을게요~</p>
+					</div>
+				</div>
+			</div>
+			<!-- 
+			<div class="purchaseSelect render" data-render="padding-left,padding-right,padding-top,padding-bottom">
+				<div class="clear render" data-render="margin-bottom,height">
+					<div class="purchaseSelectTitle render" data-render="width,height,line-height">
+						<p class="font-medium font-size-13 render" data-render="font-size">품명</p>
+					</div>
+					<div class="purchaseSelectContent render" data-render="width,height,line-height">
+						<p class="font-size-13 render" data-render="font-size">페이크 레더 점퍼</p>
+					</div>
+				</div>
+				<div class="clear render" data-render="margin-bottom,height">
+					<div class="purchaseSelectTitle render" data-render="width,height,line-height">
+						<p class="font-medium font-size-13 render" data-render="font-size">사이즈</p>
+					</div>
+					<div class="purchaseSelectContent render" data-render="width,height,line-height">
+						<ul id="selectSize" class="font-size-13 render" data-render="font-size">
+							<li class="render" data-render="width,height,margin-right">XS</li>
+							<li class="render" data-render="width,height,margin-right">S</li>
+							<li class="render" data-render="width,height,margin-right">M</li>
+							<li class="render" data-render="width,height,margin-right">XL</li>
+							<li class="render" data-render="width,height,margin-right">L</li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear render" data-render="margin-bottom,height">
+					<div class="purchaseSelectTitle render" data-render="width,height,line-height">
+						<p class="font-medium font-size-13 render" data-render="font-size">색상</p>
+					</div>
+					<div class="purchaseSelectContent render" data-render="width,height,line-height">
+						체크박스 영역(협의 필요)
+					</div>
+				</div>
+				<div class="clear render" data-render="margin-bottom,height">
+					<div class="purchaseSelectTitle render" data-render="width,height,line-height">
+						<p class="font-medium font-size-13 render" data-render="font-size">수량</p>
+					</div>
+					<div class="purchaseSelectContent render" data-render="width,height,line-height">
+						<img src="img/moreInfoPage/select_count_down.png" class="select_count_btn render mr10" data-render="height,margin-right">
+						<p class="font-medium font-size-13 render dib" data-render="font-size">2</p>
+						<img src="img/moreInfoPage/select_count_up.png" class="select_count_btn render ml10" data-render="height,margin-left">
+					</div>
+				</div>
+			</div>
+			 
+			<div class="purchaseAllPrice font-medium font-size-16 render" data-render="height,line-height,font-size">
+				<p>￦36,500</p>
+			</div>
+			<div class="purchaseBtn font-medium font-size-13 render" data-render="width,margin-bottom,font-size">
+				<div class="dib render" data-render="width,height,line-height">장바구니로</div>
+				<div class="dib fr render" data-render="width,height,line-height">구매하기</div>
+			</div>
+			-->
+			
+			<div class="mainpage_mainBox">
+				<p class="mainpage_boxTitle font-light font-size-16 render" data-render="font-size,height,margin-top,margin-bottom,line-height">MD 추천상품</p>
+				<div class="mainpage_boxContents">
+				
+					<div class="mainpage_productDiv">
+						<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+							<img src="img/mainHome/item_1.png">
+						</div>
+						<div class="mainpage_infoDiv">
+							<p>베이직 가디건</p>
+						</div>
+					</div>
+					
+					<div class="mainpage_productDiv">
+						<div class="mainpage_imgDiv">
+							<img src="img/mainHome/item_2.png">
+						</div>
+						<div class="mainpage_infoDiv">
+							<p>베이직 가디건</p>
+						</div>
+					</div>
+					
+					<div class="mainpage_productDiv">
+						<div class="mainpage_imgDiv">
+							<div class="fitLogo"></div>
+							<img src="img/mainHome/item_1.png">
+						</div>
+						<div class="mainpage_infoDiv">
+							<p>베이직 가디건</p>
+						</div>
+					</div>
+					
+					<div class="mainpage_productDiv">
+						<div class="mainpage_imgDiv">
+							<img src="img/mainHome/item_2.png">
+						</div>
+						<div class="mainpage_infoDiv">
+							<p>베이직 가디건</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="t-center">
+				<img class="bottomAnchor render" src="img/anchor.png" data-render="width,margin-top,margin-bottom" onclick="window.scrollTo(0,0);" />
+			</div>
+			<div class="footerMargin render" data-render="margin-bottom" data-render-ratio="height"></div>
+			
+			<div id="purchaseFooter" class="render" data-render="">			
+	 			<div id="optionSlideControl" style="display:none;" onclick="removeSelectOption(event)">
+	 				<span id="optionIcon" class="glyphicon glyphicon-chevron-up"></span>
+	 			</div>
+	 			<div id="optionSelectorWrap" style="display: none;" class="render" data-render="padding-top,padding-bottom,padding-left,padding-right,height" data-render-ratio="height" onclick="optionSelectorWrapClickHandler(event)">
+	 				<div class="optionSelector mb14 render" data-render="margin-bottom" data-render-ratio="height">
+	 					<select data-role="none" class="render" data-render="height,padding-left,font-size" data-render-ratio="height">
+	 						<option value="" disabled selected>상품 컬러</option>
+	 						<option>옵션1</option>
+	 						<option>옵션2</option>
+	 						<option>옵션3</option>
+	 						<option>옵션4</option>
+	 						<option>옵션5</option>
+	 					</select>
+	 				</div>			
+	 				<div class="optionSelector mb14 render" data-render="margin-bottom" data-render-ratio="height">
+	 					<select data-role="none" class="render" data-render="height,padding-left,font-size" data-render-ratio="height">
+	 						<option value="" disabled selected>상품 사이즈</option>
+	 						<option>옵션1</option>
+	 						<option>옵션2</option>
+	 						<option>옵션3</option>
+	 						<option>옵션4</option>
+	 						<option>옵션5</option>
+	 					</select>
+	 				</div>			
+	 				<div class="optionSelector">
+	 					<div id="itemQuantity">
+	 						<img src="img/moreInfoPage/select_arrow_down.png" onclick="minusCount()" class="middle render" data-render="width" data-render-ratio="height" />
+	 						<span id="itemCountSpan" class="middle render" data-render="height,margin-left,margin-right" data-render-ratio="height">
+	 							<input data-role="none" type="number" value="" placeholder="상품수량" id="countInput" class="middle render" data-render="width,border-width" data-render-ratio="height">
+	 						</span>
+	 						<img src="img/moreInfoPage/select_arrow_up.png" onclick="plusCount()" class="middle render" data-render="width" data-render-ratio="height" />
+	 					</div>
+	 				</div>			
+	 			</div>	
+	 			<div id="myShoppingCart" class="purchaseFooterBtn render"  data-render="height,line-height" data-render-ratio="height" onclick="selectOption(event)">구매하기</div>
+	 			<div id="myShoppingCart2" class="purchaseFooterBtn render hide"  data-render="height,line-height" data-render-ratio="height" >
+	 				<div id="addCartBtn" class="dib">장바구니로</div>
+					<div id="purchaseBtn" class="dib">구매하기</div>
+	 			</div>
+	 		</div>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+body{
+	margin: 0;
+}
+
+.timeArea{
+	text-align: center;
+    font-size: 15px;
+	padding-top: 20px;
+    padding-bottom: 5px;
+    position: fixed;
+	width:100%;
+	background-color: white;
+}
+
+.topTableArea{
+	width: 26%;
+    display: inline-block;
+    float: left;
+}
+
+.topResultTableArea{
+	width: 12%;
+    display: inline-block;
+    float: left;
+}
+
+.roundArea{
+	width: 10% !important;
+}
+
+.topTable{
+	width: 100%;
+}
+
+.dataTableArea{
+	width:26%; 
+	display:inline-block;
+	float:left;
+	margin-top: 220px;
+}
+
+.dataResultTableArea{
+	width:12%; 
+	display:inline-block;
+	float:left;
+	margin-top: 220px;
+}
+
+.dataTable{
+	width:100%;
+	font-size: 15px;
+}
+
+.dataResultTable{
+	width:100%;
+	font-size: 30px;
+}
+
+.clear{
+	clear:both;
+}
+
+.round_cell{
+	font-size:20px !important;
+}
+
+.stats_list th{
+	height: 26px;
+}
+
+.stats_list td{
+	height: 26px;
+}
+
+.topStatsTable th{
+	height: 20px;
+}
+
+.topStatsTable td{
+	height: 20px;
+}

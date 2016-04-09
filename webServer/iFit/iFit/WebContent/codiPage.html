@@ -1,0 +1,330 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- 필수요소 -->
+<link rel="stylesheet"
+	href="css/jquery.mobile-1.4.5.min.css" />
+<script src="js/jquery-1.11.1.min.js"></script>
+<script
+	src="js/jquery.mobile-1.4.5.min.js"></script>
+	
+	
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/common.css" rel="stylesheet">
+<link href="css/backHeader.css" rel="stylesheet">
+<link href="css/codi.css" rel="stylesheet">
+
+<script src="js/common/backHeader.js"></script>
+<script src="js/deviceRender.js"></script>
+<script src="js/Carousel.js"></script>
+<script type="text/javascript">
+var selectNum=0;
+//옷장부르는 function
+function closetCall(){
+	//전체 div Change
+	$("#closetSelector").animate({ "bottom": "0px"}, "slow",function(){
+		$("#closetSelector").css("position","relative");
+		
+		//푸터 change
+		if(selectNum>=2){
+			$("#cloCoFooter").show();
+			$("#closetFooter").show();
+		}else{
+			$("#cloCoFooter").hide();
+			$("#closetFooter").hide();
+		}
+		
+		$("#codiFooter").hide();
+		$("#pageName").html("옷장");
+		
+	} );
+	
+}
+
+//가상 codi페이지 부르는 버튼 누를때 function
+function codiCall(){
+	var i=0;
+	
+	var imgSrc =[];
+	$(".codiSelect").each(function(){
+		imgSrc.push($(this).find(".eachImg").attr("src"));
+	});
+	
+	$(".selectItem").each(function(){
+		if(i<selectNum){
+			$(this).show();
+			$(this).attr("src",imgSrc[i++]);
+		}else{
+			$(this).hide();
+		}
+	});
+	//전체 div Change
+	$("#closetSelector").css("position","fixed");
+	$("#closetSelector").animate({ "bottom": "1000px"}, "slow",function(){
+		//$("#closetSelector").hide();
+	} );
+	
+	//푸터 change
+	$("#closetFooter").hide();
+	$("#codiFooter").show();
+	
+	$("#pageName").html("코디하기");
+	
+}
+
+    $(document).ready(function() {
+    	$('.container').carousel({
+            num: 5,
+            maxWidth: 120,
+            maxHeight: 150,
+            scale: 0.9,
+            distance: 40,
+            autoPlay: false
+        });
+    	
+    	$(".container li").click(function(){
+    		var clickZIndex = $(this).css('z-index');
+    		if(clickZIndex !='10001'){
+    			return;
+    		}
+    		//취소
+    		if($(this).attr('class') == 'codiSelect'){
+    			selectNum--;
+    			$(this).attr('class',' ');
+        		$(this).css("background-color","black");
+        		$(this).find(".eachImg").css("opacity","1")
+        		$(this).find(".cancelImg").remove();
+    		}else{
+    			//추가
+    			
+    			if(selectNum==5){
+    				$(this).css("background-color","red");
+    	      $(this).find(".eachImg").css("opacity","0.5")
+    				$(this).animate({"opacity":"1"}, "slow",function(){
+    					$(this).find(".eachImg").css("opacity","1")
+    				} );
+       			return;
+       		}
+    			selectNum++;
+    			$(this).attr('class','codiSelect');
+       		$(this).css("background-color","#A5FFEB");
+       		$(this).find(".eachImg").css("opacity","0.5")
+       		$(this).append($("#codiHidDiv").html());
+  	 		}
+    		if(selectNum>=2){
+					$("#cloCoFooter").show();
+					$("#closetFooter").show();
+				}else{
+					$("#cloCoFooter").hide();
+					$("#closetFooter").hide();
+				}
+    	});
+    });
+    </script>
+</head>
+
+<body>
+
+	
+	<div data-role="page" class="eachPage">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false" id="backheader" style="height: 3.5em; border-bottom: 1px groove;">
+         <span id="backBtn" data-rel="back" style="line-height: 3.5em;"></span>
+         <span id="pageName" class="font-size-16" data-render="font-size">옷장</span>
+  	</div>
+  	<div id="codiView">
+  	<div style="text-align: center;"><img src="img/closet/closetCallBtn.png" style="" onclick="closetCall();"></div>
+  		
+  		<div id="imgListDiv">
+	  		<div id="funImg" style="position: absolute; right: 0px; bottom: 0px;">
+  				<img src="img/closet/qrImg.PNG">
+  			</div>
+  			
+  			<img class="selectItem" style="position: absolute; left: 10%; top: 2%;" >
+  			<img class="selectItem" style="position: absolute; left: 35%; top: 30%;" >
+  			<img class="selectItem" style="position: absolute; left: 65%; top: 0%;" >
+  			<img class="selectItem" style="position: absolute; left: 70%; top: 60%; width: 50px; " >
+  		</div>
+  		<div id="order" style="border-top: 2px groove; border-bottom: 2px solid gray; padding: 15px 15px 2px 15px;">
+	  		<div class="font-size-13 mb10" style="height: 20px; margin-bottom: 10px;">
+					<p class="font-size-13 render dib" data-render="font-size" style="font-size: 13px;">페이크 레더 점퍼</p>
+					<p class="font-size-13 render dib fr" data-render="font-size" style="font-size: 13px;">￦36,000</p>
+				</div>
+				
+				<div class="font-size-13 mb10" style="height: 20px; margin-bottom: 10px;">
+					<p class="font-size-13 render dib" data-render="font-size" style="font-size: 13px;">페이크 레더 점퍼</p>
+					<p class="font-size-13 render dib fr" data-render="font-size" style="font-size: 13px;">￦36,000</p>
+				</div>
+				
+				<div class="font-size-13 mb10" style="height: 20px; margin-bottom: 10px;">
+					<p class="font-size-13 render dib" data-render="font-size" style="font-size: 13px;">페이크 레더 점퍼</p>
+					<p class="font-size-13 render dib fr" data-render="font-size" style="font-size: 13px;">￦36,000</p>
+				</div>
+  		</div>
+  		<div class="mb10"  style="height: 20px; padding-right:10px; margin: 10px 0px;">
+					<p class="font-medium font-size-18 render dib fr" data-render="font-size" style="font-size: 18px;">￦123,500</p>
+				</div>
+  	</div>
+  	
+  	<div id="closetSelector">
+			<div class="container" id="container1">
+				<img id="topIcon" src="img/closet/top.png" style="position: absolute; left: 5px; top:45%;">
+				<ul>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_3.PNG" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_3.PNG" alt="" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="container" id="container2">
+			<img id="topIcon" src="img/closet/pants.png" style="position: absolute; left: 5px; top:45%;">
+				<ul>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_3.PNG" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_3.PNG" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_3.PNG" alt="" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="container" id="container3">
+				<img id="topIcon" src="img/closet/skirt.png" style="position: absolute; left: 5px; top:45%;">
+				<ul>
+					<li><img class="eachImg" src="img/closet/codi_item_3.PNG" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="container" id="container4">
+				<img id="topIcon" src="img/closet/onepiece.png" style="position: absolute; left: 5px; top:45%;">
+				<ul>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="container" id="container5">
+				<img id="topIcon" src="img/closet/outer.png" style="position: absolute; left: 5px; top:45%;">
+				<ul>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="container" id="container6">
+				<img id="topIcon" src="img/closet/accessorie.png" style="position: absolute; left: 5px; top:45%;">
+				<ul>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+				</ul>
+			</div>
+			
+			<div class="container" id="container7">
+				<img id="topIcon" src="img/closet/shoes.png" style="position: absolute; left: 5px; top:45%;">
+				<ul>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg" src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item_2.png" alt="" />
+					</li>
+					<li><img class="eachImg"  src="img/closet/codi_item.png" alt="" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="codiHidDiv" style="display: none;">
+			<img class="cancelImg" src="img/closet/cancel.png" style="position: absolute; top: 8px; right: 8px; ">
+			<img class="cancelImg" src="img/closet/buy2.png" style="position: absolute; bottom: 10px; left: 19px; width: 26px;" onclick='location.href="moreInfoPage.html"'>
+			<img class="cancelImg" src="img/closet/fitting.png" style="position: absolute; bottom: 10px; right: 19px; width:26px;" onclick='alert("Fit N Shop 준비중");' >
+		</div>
+		<div id="cloCoFooter" >
+			<div id="closetFooter" onclick="codiCall();">
+				<img src="img/closet/codi_icon.png" style="margin-right: 10px;">코디하기
+			</div>
+			<div id="codiFooter" style="display: none;">
+				<div style="border-right: 1px solid white;" onclick='alert("Fit N shop 준비중")'>3D 피팅</div>
+				<div onclick='alert("구매시퀀스로이동");'>구매하기</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

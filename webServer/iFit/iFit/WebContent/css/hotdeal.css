@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+#hotDealPage{
+	margin-top: 12px;
+}
+.hotContents{
+	padding : 0px 16px;
+	margin-bottom: 20px;
+	
+}
+.hotContents img{
+	width: 100%;
+}

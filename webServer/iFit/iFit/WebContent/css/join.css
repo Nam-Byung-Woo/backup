@@ -1,0 +1,169 @@
+@CHARSET "UTF-8";
+
+#joinPage{
+	padding: 63px 16px 0 16px;
+	min-height: 100% !important;
+}
+#joinPage form{
+	margin-top:40px;
+}
+#input_box .ui-input-text{
+	border: 0;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin: 0;
+    height: 100%;
+}
+#input_box{
+    padding: 0 58px;
+}
+#input_box input{
+	background-color: #ebebeb;
+	height:34px;
+}
+#input_box p{
+	margin-bottom:46px;
+	height:15px;
+}
+#input_box #input_id{
+	margin-bottom:14px;
+}
+#input_box #input_hp{
+	margin-bottom:14px;
+}
+#input_box #input_pw{
+	margin-bottom:14px;
+}
+#input_box #input_captcha{
+	margin-bottom:17px;
+}
+#accordion .ui-input-text{
+	border: 0;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin: 0;
+    height: 100%;
+    display:inline-block;
+}
+#input_wedding_year, #input_wedding_month, #input_wedding_day{
+	background-color: #ebebeb;
+	width:40px;
+	height:34px;
+}
+#input_wedding_month, #input_wedding_day{
+	margin-left:10px;
+}
+#input_wedding_body, #input_wedding_hair, #input_wedding_dress{
+	background-color: #ebebeb;
+	width:200px;
+	height:34px;
+}
+#input_wedding_etc{
+	text-align:center;
+	margin-top:10px;
+	background-color: #ebebeb;
+	width:343px;
+	height:200px;
+}
+.wedding_title{
+	width:71px;
+}
+.wedding_content{
+	width:200px;
+}
+#accordion{
+	color: #000000 !important;
+}
+
+#accordion .panel{
+	-webkit-box-shadow: none;
+    box-shadow: none;
+	border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
+    border-left: none;
+    border-right: none;
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+
+.panel-heading{
+	padding:0 18px;
+}
+
+.panel-title>a{
+	color: #000000 !important;
+	font-weight:initial !important;
+}
+
+.panel-title, .indicator{
+	color:#9b9b9b;
+	line-height:51px;
+}
+.panel-body{
+	padding:18px 36px;
+	line-height:200%;
+}
+.panel-body >div{
+    height: 44px;
+    line-height: 44px;
+}
+.panel-default>.panel-heading{
+	color:#626262;
+	background-color: white;
+}
+.ui-link{
+	width:100%;
+	display: inline-block;
+}
+.panel-group .panel+.panel{
+	margin:0px;
+}
+a:focus, a:hover{
+	text-decoration: none;
+}
+.ui-page-theme-a a:hover{
+	color:#000000;
+}
+i{
+	color:#dcdcdc;
+}
+.panel-default>.panel-heading+.panel-collapse>.panel-body{
+	border: 0;
+}
+
+#policy{
+	overflow:scroll;
+	height:180px;
+	border: 1px solid #EBEBEB;
+	padding:0 16px 16px 16px;
+}
+
+.agreeCheckBtn{
+	display:inline-block;
+	width:12px;
+	height:12px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image:url('../img/itemcheck_off.png');
+    
+}
+
+.agreeCheckBtn.btnOn{
+	background-image:url('../img/itemcheck_on.png');
+}
+
+#joinBtn{
+	cursor:pointer;
+	margin-bottom:22px;
+	height:52px;
+	background-color:#A5FFEB;
+	text-align:center;
+	line-height: 52px;
+}

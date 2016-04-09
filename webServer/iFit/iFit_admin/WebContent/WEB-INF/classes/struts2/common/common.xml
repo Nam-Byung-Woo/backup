@@ -1,0 +1,22 @@
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"    
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="common" namespace="/common" extends="helpWeb">
+		<!-- 주소찾기 검색 -->
+		<action name="address_search" class="action.address.Address" method="address_search">
+			<result>/jsp/common/xml_result.jsp</result>
+		</action>
+		
+		<!-- 주소찾기 시도, 구군, 읍면동 select box -->
+		<action name="address_select_change" class="action.address.Address" method="address_select_change">
+			<result>/jsp/common/json_result.jsp</result>
+		</action>
+
+		<!--예시
+		<action name="ipApporveList" class="action.ip.IpAction" method="IpList">
+		  <result>/jsp/admin/ip/ipApporveList.jsp</result>
+		  <result name="EXCEL">/jsp/admin/ip/ipListExcelDownload.jsp</result>
+		</action>
+		-->
+	</package>
+</struts>

@@ -1,0 +1,63 @@
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"    
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="admin" namespace="/admin" extends="helpWeb">
+		<!-- admin 메인-->
+		<action name="adminMain" class="action.admin.Index">
+			<result>/jsp/admin/index.jsp</result>
+		</action>
+		
+		<!-- admin 로그인 페이지-->
+		<action name="adminLogin" class="action.admin.Index">
+			<result>/jsp/admin/common/login.jsp</result>
+		</action>
+		
+		<!-- admin 로그인 로직-->
+		<action name="adminLoginAction" class="action.admin.Index" method="loginAction">
+			<result type="redirectAction">
+		  		<param name="actionName">admin</param>
+		  		<param name="namespace">/</param>
+    	  	</result>
+			<result name="validation">/jsp/admin/common/login.jsp</result>
+		</action>
+		
+		<!-- admin 로그아웃 로직-->
+		<action name="adminLogoutAction" class="action.admin.Index" method="logoutAction">
+			<result type="redirectAction">
+		  		<param name="actionName">admin</param>
+		  		<param name="namespace">/</param>
+    	  	</result>
+		</action>
+		
+		<!-- admin 글리스트 -->
+		<action name="adminHireList" class="action.admin.Hire" method="hireList">
+			<result>/jsp/admin/hire/hireList.jsp</result>
+		</action>
+		
+		<!-- admin 글작성 폼 -->
+		<action name="hireWrite" class="action.admin.Hire" method="hireWrite">
+			<result>/jsp/admin/hire/hireWrite.jsp</result>
+		</action>
+		
+		<!-- admin 글작성 로직 -->
+		<action name="hireWriteAction" class="action.admin.Hire" method="hireWriteAction">
+		    <result type="redirectAction">
+		  		<param name="actionName">adminHireList</param>
+		  		<param name="namespace">/admin</param>
+    	  	</result>
+			<result name="validation">/jsp/admin/hire/hireWrite.jsp</result>
+		</action>
+		
+		<!-- admin 글리스트 -->
+		<action name="pushTest" class="action.admin.Hire" method="pushTest">
+			<result>/jsp/admin/hire/hireList.jsp</result>
+		</action>
+
+		<!--예시
+		<action name="ipApporveList" class="action.ip.IpAction" method="IpList">
+		  <result>/jsp/admin/ip/ipApporveList.jsp</result>
+		  <result name="EXCEL">/jsp/admin/ip/ipListExcelDownload.jsp</result>
+		</action>
+		-->
+	</package>
+</struts>

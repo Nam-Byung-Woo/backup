@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+ 
+<struts>
+    <package name="helpWeb" extends="struts-default" namespace="/">
+
+        <interceptors>
+ 			<interceptor name="sessionInit" class="interceptor.SessionInterceptor"/>	 					
+ 			<interceptor-stack name="defaultSessionStack">
+              	<interceptor-ref name="sessionInit" />
+              	<interceptor-ref name="defaultStack"/>
+           	</interceptor-stack>
+		</interceptors>
+  
+		<default-interceptor-ref name="defaultSessionStack" />
+  	
+		<default-action-ref name="exception" />
+		
+	    <global-results>
+	      <result name="memberLogin">/jsp/common/allJavascript.jsp</result>  <!-- 정의된 javascript 실행 -->
+	      <result name="adminLogin">/jsp/admin/common/login.jsp</result>  			<!-- 정의된 javascript 실행 -->	      
+	     
+	     <!-- <result name="exception">/jsp/common/error.jsp</result>	 --> 		<!-- 기타 모든 에러 -->
+	    </global-results>
+
+	    <!--
+	    개발완료시에는 exception숨겨야하므로 주석제거하여 적용
+		<global-exception-mappings>
+			<exception-mapping exception="java.sql.SQLException" result="exception"/>
+			<exception-mapping exception="java.lang.Exception" result="exception"/>
+			<exception-mapping exception="java.lang.IllegalArgumentException" result="exception" />
+			<exception-mapping exception="java.lang.NoSuchMethodException" result="exception" />
+			<exception-mapping exception="java.lang.Exception" result="exception"/> 
+			<exception-mapping exception="java.lang.Error" result="exception"/> 
+			<exception-mapping exception="java.lang.Throwable" result="exception"/>      
+    	</global-exception-mappings>
+		 -->
+
+	    <!-- 관리자페이지 -->
+		<action name="admin">
+			<result type="redirectAction">
+				<param name="actionName">adminMain</param>
+				<param name="namespace">/admin</param>
+		    </result>
+		</action>
+		
+		<!-- 메인페이지 -->
+		<action name="index" class="action.index.Index" method="index">
+		    <result name="WEB">/jsp/service/web/index.jsp</result>
+		    <result name="APP">/jsp/service/app/index.jsp</result>
+		</action>
+	    
+    </package>
+    
+    <include file="struts2/common/common.xml" />
+    <include file="struts2/admin/admin.xml" />
+    <include file="struts2/app/app.xml" />
+    
+</struts> 

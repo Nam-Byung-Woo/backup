@@ -1,0 +1,156 @@
+@CHARSET "UTF-8";
+
+#login_box .ui-input-text{
+	border: 0;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    margin: 0;
+    height: 100%;
+}
+
+#myPage{
+	padding: 0 16px;
+	margin-top:48px;
+}
+
+#login_box{
+    padding: 0 58px;
+}
+#login_box input{
+	background-color: #ebebeb;
+	height:34px;
+}
+#login_box p{
+	margin-bottom:46px;
+	height:15px;
+}
+#login_box #input_id{
+	margin-bottom:14px;
+}
+#login_box #input_pw{
+	margin-bottom:17px;
+}
+#login_box #icon_box{
+	margin-bottom:24px;
+	height:34px;
+}
+#login_box #icon_box img{
+	height:100%;
+}
+#userImage{
+    height: 130px;
+    width: 130px;
+    margin: 0 auto 30px auto;
+    border-radius: 1000px;
+    overflow:hidden;
+}
+#userImage img{
+    width: 100%;
+    height: auto;
+}
+#loginBtn{
+	cursor:pointer;
+	margin-bottom:22px;
+	height:68px;
+	background-color:#ebebeb;
+	text-align:center;
+	line-height: 68px;
+}
+#list{
+	background-color: inherit;
+}
+#list > div{
+	cursor:pointer;
+	padding:0 25px;
+	width:100%;
+	height:51px;
+	background-color: white;
+	border-bottom: 1px solid #ebebeb;
+}
+#list p{
+	margin:0;
+}
+#list > div > div{
+	width: 50%;
+	height:100%;
+	line-height:51px;
+    display: inline-block;
+    float: left;
+}
+
+#list .messageBox{
+	width: 18px;
+    height: 18px;
+    line-height: 18px;
+    display: inline-block;
+    background-color: #9b9b9b;
+    vertical-align: middle;
+    border-radius: 50%;
+   	-webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    color:white;
+}
+#list .listIcon{
+	height:18px;
+}
+
+#idSearchPopup, #pwSearchPopup, #updateUserInfoPopup{
+	background: none;
+    border: none;
+   	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.regist{
+	text-decoration:underline;
+	color:#b5b5b5;
+}
+#idSearchPopup-screen, #pwSearchPopup-screen, #updateUserInfoPopup-screen{
+	background-color: black !important;
+}
+#popupHead{
+    text-shadow: none;
+    color: white;
+}
+#popupBody{
+	background-color:white;
+}
+#searchWrap{
+	width: 280px;
+	height:35px;
+	line-height:35px;
+    border-bottom: 1px solid black;    
+}
+.searchTitle{
+	width: 280px;
+    height: 34px;
+    padding:0 10px;
+    border:0;
+    font-size:11px;
+}
+
+#pupupFoot{
+	width:280px;
+	height:50px;
+	text-align:center;
+}
+#pupupFoot>div{
+	width:100px;
+	height:34px;
+	line-height:34px;
+}
+#pupupFoot>#cancelBtn{
+	background-color: #ebebeb;
+}
+#pupupFoot>.writeBtn{
+	background-color: #a5FFeb;
+	margin:0 auto;
+}
+.ui-popup-screen.in{
+	position: fixed;
+	height:100%;
+	opacity: .8;
+}

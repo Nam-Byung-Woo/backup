@@ -1,0 +1,91 @@
+.indexBG{
+	background-color: #edac7d;
+	background: -webkit-linear-gradient(top, #31b7d7 0%, #edac7d 100%);
+	background: -moz-linear-gradient(top, #31b7d7 0%, #edac7d 100%);
+	background: -ms-linear-gradient(top, #31b7d7 0%, #edac7d 100%);
+	background: -o-linear-gradient(top, #31b7d7 0%, #edac7d 100%);
+	background: linear-gradient(to bottom, #31b7d7 0%, #edac7d 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, StartColorStr='#31b7d7', EndColorStr='#edac7d');
+	min-width: 0;
+}
+
+/* admin index */
+#adminLoginForm{
+	text-align:center;
+}
+
+.logo{
+	background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 140px;
+    height: 80px;
+    width: 160px;
+}
+
+.mainLogo{
+    background-size: 229px;
+    width: 100%;
+    height: 100px;
+}
+
+.adminLoginDiv{
+	width:500px;
+}
+
+.btn1{
+	width:229px;
+	height:68px;
+	border:0;
+}
+/****************/
+
+/* admin container영역 */
+.admin_container{width:5000px;}
+
+/* admin gnb영역 */
+.adminGnbArea hr{
+	border: 3px solid #4A4A4A;
+}
+
+/* 버튼 공통 */
+#logoutBtn{
+	width: 100px;
+}
+.writeBtn{
+	background-color:#A5FFEB;
+	border:0;
+}
+.simpleBtn{
+	border:1px solid #78C7F4;
+	width: 100px;
+}
+
+/* admin lnb영역 */
+.adminLnbArea{float:left;}
+.lnb_ul{border: 1px solid #4A4A4A;}
+.lnb_ul>li{width:170px;border-bottom: 3px solid #4A4A4A;}
+.lnb_ul>li>p{background: #9B9B9B; padding: 9px 0 10px 9px;}
+.lnb_ul>li>ul>li>p{padding: 7px 0 7px 20px;}
+
+/* admin 컨텐츠 영역 */
+.adminContentArea{width:900px; float:left; padding:30px 50px 30px 50px;}
+.adminContentArea .contentBody{margin-bottom:30px;}
+
+/* admin table */
+table{border-collapse: collapse;width:100%;  border-top:2px solid #CCCCCC; border-bottom:2px solid #CCCCCC;}
+table thead th{background-color:#EBEBEB; border-bottom:1px solid #CCCCCC; padding:14px 0; }
+table tbody th{background-color:#EBEBEB;}
+table td{padding:10px 0; border-bottom:1px solid #CCCCCC;}
+.table_write tbody th{background-color:#EBEBEB; border-bottom:1px solid #CCCCCC; padding:14px 0; }
+.table_write td{padding:5px 0px 5px 20px; border-bottom:1px solid #CCCCCC;}
+table td img{height: 150px;}
+
+/* 페이징 버튼 공통 */
+.paging{text-align:center; margin-top:20px;}
+.paging ul{display:inline-block;}
+.paging ul li{display:inline-block;}
+.paging .btnOn {display:inline-block; width:30px; height:34px; padding:10px 14px 0; border:1px solid #9B9B9B; background-color:#9B9B9B; font-size:13px; color:#fff; line-height:25px; margin-left: -1px; cursor: default;}
+.paging a.btnOff {display:inline-block; width:30px; height:34px; padding:10px 14px 0; border:1px solid #dddddd; font-size:13px; color:#000; line-height:25px; margin-left: -1px;}
+.paging a.btnOff:hover {border: 1px solid #EBEBEB; background-color:#EBEBEB; color:#000000;}

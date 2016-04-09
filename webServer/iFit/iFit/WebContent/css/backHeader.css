@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+#backheader {
+	color: #626262;
+	white-space: nowrap;
+	background-color: white;
+	text-shadow: none;
+	line-height: 3.0em;
+	text-align: center;
+	z-index: 999;
+	height: 63px;
+	font-weight: normal;
+	border:0;
+}
+
+
+#backheader > span{
+	line-height:3.0em;
+	display: inline-block;
+	vertical-align: middle;
+	text-shadow: none;
+	text-align:center;
+}
+
+.headerMargin{
+	display:block !important;
+	border-top:1px solid #cccccc;
+	height:12px;
+}
+
+#backheader > #backBtn {
+	width: 22px;
+    height: 48px;
+    position: absolute;
+    left: 20px;
+    text-align: left !important;
+	background-image:url('../img/moreInfoPage/back.png');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: 12px;
+}
+#backheader .glyphicon{
+	font-size:30px;
+	width: 10%;
+	padding-left:0.3em;
+	color:#959595;
+}
+
+#pageName{
+	width:50%;	
+}
+#backHeaderFn{
+	width:40%;
+	text-align: right !important;
+	padding-right:1.5em;
+}
+
+#backHeaderFn > img{
+	width:2em;	
+	margin-right: 0.5em;
+}

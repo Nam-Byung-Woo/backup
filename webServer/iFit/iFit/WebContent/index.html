@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="stylesheet"
+	href="css/jquery.mobile-1.4.5.min.css" />
+<script src="js/jquery-1.11.1.min.js"></script>
+<script
+	src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/jssor.slider.mini.js"></script>
+<script type="text/javascript" src="js/imageSliderCustomize.js"></script>
+
+<!--  Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/common.css" rel="stylesheet">
+<link href="css/main_home.css" rel="stylesheet">
+<link href="css/category.css" rel="stylesheet">
+<link href="css/three_d.css" rel="stylesheet">
+<link href="css/hotdeal.css" rel="stylesheet">
+<link href="css/myPage.css" rel="stylesheet">
+<link href="css/product_list.css" rel="stylesheet">
+<link href="css/cart.css" rel="stylesheet">
+<link href="css/codi.css" rel="stylesheet">
+<link href="css/backHeader.css" rel="stylesheet">
+
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/common/common.js"></script>
+<script type="text/javascript" src="js/deviceRender.js"></script>
+<script type="text/javascript" src="js/mainPage.js"></script>
+<script type="text/javascript" src="js/three_d.js"></script>
+<script type="text/javascript" src="js/hotdeal.js"></script>
+<script type="text/javascript" src="js/mypage.js"></script>
+<script type="text/javascript" src="js/product_list.js"></script>
+<script type="text/javascript" src="js/cart.js"></script>
+<script type="text/javascript" src="js/codiPage.js"></script>
+<script type="text/javascript" src="js/common/backHeader.js"></script>
+
+</head>
+<body>
+	<div data-role="header" id="menuBar" data-position="fixed" data-tap-toggle="false">
+		<div id="loadingDiv">
+			<img src="img/ajax-loader.gif">
+		</div>
+		<img id="closet" src=" img/header/closet.png" onclick="headBar_handler('closet')"> 
+		<span id="searchDiv"> 
+			<img src="img/header/search.png"> 
+			<input id="searchBar" data-role=none>
+			<span id="searchBarClickView" onclick="searchBarBtn_Handler(event)">
+			Go</span>
+		</span>
+		<img id="likeItem" src=" img/header/likeItem.png" onclick="headBar_handler('zzim')" class="headerIcon"> 
+		<img id="shoppingCart" src=" img/header/shoppingCart.png" onclick="headBar_handler('cart')" class="headerIcon">
+	</div>
+	<div data-role="header" id="tagDiv" style="display: none; position:fixed; top:30px; border: 0px; width: 100%; height: 100%; z-index: 20; " >
+		<div id="tagList">
+			<div class="font-bold font-size-18">
+			
+				<div class="tag" onclick="searchBarBtn_Handler();">#프릴원피스 </div>
+				<div class="tag" onclick="searchBarBtn_Handler();">#체크무늬 </div>
+				<div class="tag" onclick="searchBarBtn_Handler();">#트레이닝 </div>
+			</div>
+			<div class="font-light font-size-18">
+				<div class="tag" onclick="searchBarBtn_Handler();">#스커트</div>
+				<div class="tag" onclick="searchBarBtn_Handler();">#가디건</div>
+				<div class="tag" onclick="searchBarBtn_Handler();">#가디건</div>
+				<div class="tag" onclick="searchBarBtn_Handler();">#신상</div>
+				<div class="tag" onclick="searchBarBtn_Handler();">#원피스</div>
+				<div class="tag" onclick="searchBarBtn_Handler();">#세일상품</div>
+				<div class="tag" onclick="searchBarBtn_Handler();">#행사상품</div>
+			</div>
+		</div>
+		<div id = "blackDiv" style="background-color: black; height:100%; opacity:0.8;" onclick="stopSearchBar()">
+		</div>
+	
+	</div>
+	
+	<div data-role="header" id="adWrap">
+		<div class="photoArea">	
+			<div id="jssor_1" class="slider_image">
+		        <div id="jssor_1_container" class="slider_image" data-u="slides">
+		            <div data-p="225.00" style="display: none;">
+		                <img data-u="image" src="img/ad/00.png" />
+		            </div>
+		            <div data-p="225.00" style="display: none;">
+		                <img data-u="image" src="img/ad/01.jpg" />
+		            </div>
+		            <div data-p="225.00" style="display: none;">
+		                <img data-u="image" src="img/ad/02.jpg" />
+		            </div>
+		        </div>
+		        <!-- Bullet Navigator -->
+		        <div data-u="navigator" class="jssorb05" data-autocenter="1">
+		            <!-- bullet navigator item prototype -->
+		            <div data-u="prototype"></div>
+		        </div>
+		        <!-- Arrow Navigator -->
+		        <!-- 일단보류
+		        <span data-u="arrowleft" class="jssora22l" data-autocenter="2"></span>
+		        <span data-u="arrowright" class="jssora22r" data-autocenter="2"></span>
+		         -->
+		    </div>
+		</div>
+		<!-- 
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="img/ad/00.png" alt="...">
+				</div>
+				<div class="item">
+					<img src="img/ad/01.jpg" alt="...">
+				</div>
+				<div class="item">
+					<img src="img/ad/02.jpg" alt="...">
+				</div>
+				<div class="item">
+					<img src="img/ad/04.jpg" alt="...">
+				</div>
+				<div class="item">
+					<img src="img/ad/05.jpg" alt="...">
+				</div>
+			</div>
+		</div>
+		 -->
+	</div>
+	
+	<div data-role="page" id="main_home" 	class="eachPage haveADContent">
+		
+		<div id="mainpage_middleBar">
+			<div class="middleEach">
+				<p class="middleImg">
+					<img src="img/mainHome/best.png">
+				</p>
+				<p class="middleText">BEST</p>
+			</div>
+			<div class="middleEach">
+				<p class="middleImg">
+					<img src="img/mainHome/event.png">
+				</p>
+				<p class="middleText">EVENT</p>
+			</div>
+			<div class="middleEach">
+				<p class="middleImg">
+					<img src="img/mainHome/fitting.png">
+				</p>
+				<p class="middleText">FITTING</p>
+			</div>
+			<div class="middleEach" style="border-right: 0px;">
+				<p class="middleImg">
+					<img src="img/mainHome/wedding.png">
+				</p>
+				<p class="middleText">WEDDING</p>
+			</div>
+		</div>
+		
+		<div class="mainpage_mainBox" class="clear">
+			<p class="mainpage_boxTitle">Hot</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p class="right">베이직 가디건</p>
+						<p class="price clear right">&#8361 36,000<p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p class="right">베이직 가디건</p>
+						<p class="price clear right">&#8361 36,000<p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p class="right">베이직 가디건</p>
+						<p class="price clear right">&#8361 36,000<p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p class="right">베이직 가디건</p>
+						<p class="price clear right">&#8361 36,000<p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">New</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p class="right">베이직 가디건</p>
+						<p class="price clear right">&#8361 36,000<p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_2.png" style="height: 100%;">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p class="right">베이직 가디건</p>
+						<p class="price clear right">&#8361 36,000<p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p class="right">베이직 가디건</p>
+						<p class="price clear right">&#8361 36,000<p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p class="right">베이직 가디건</p>
+						<p class="price clear right">&#8361 36,000<p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="EventBanner">
+			<p>Event</p>
+			<img width="100%;" src="img/bottom_banner.png">
+		</div>
+		
+		<div class="EventBanner">
+			<p>Event</p>
+			<img width="100%;" src="img/bottom_banner2.png">
+		</div>
+		<div style="width: 100%; text-align: center; padding: 42px 0px;" onclick="window.scrollTo(0,0);"><img width="15px;" src="img/anchor.png"></div>
+		
+		
+	</div>
+	<div data-role="page" id="categoryPage" class="eachPage haveADContent">
+			<div class="categoryMiddleBar">
+				<div class="middleEach">
+					<p class="middleImg">
+						<img src="img/category/top.png">
+					</p>
+					<p class="middleText">TOP</p>
+				</div>
+				<div class="middleEach">
+					<p class="middleImg">
+						<img src="img/category/pants.png">
+					</p>
+					<p class="middleText">PANTS</p>
+				</div>
+				<div class="middleEach">
+					<p class="middleImg">
+						<img src="img/category/skirt.png">
+					</p>
+					<p class="middleText">SKIRT</p>
+				</div>
+				<div class="middleEach" style="border-right: 0px;">
+					<p class="middleImg">
+						<img src="img/category/onepiece.png">
+					</p>
+					<p class="middleText">ONE PIECE</p>
+				</div>
+			</div>
+			<div class="categoryMiddleBar">
+				<div class="middleEach">
+					<p class="middleImg">
+						<img src="img/category/outer.png">
+					</p>
+					<p class="middleText">OUTER</p>
+				</div>
+				<div class="middleEach">
+					<p class="middleImg">
+						<img src="img/category/dress.png">
+					</p>
+					<p class="middleText">DRESS</p>
+				</div>
+				<div class="middleEach">
+					<p class="middleImg">
+						<img src="img/category/accessorie.png">
+					</p>
+					<p class="middleText">ACCESSORIE</p>
+				</div>
+				<div class="middleEach" style="border-right: 0px;">
+					<p class="middleImg">
+						<img src="img/category/shoes.png">
+					</p>
+					<p class="middleText">SHOES</p>
+				</div>
+			</div>
+		
+			<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">Top</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">Pants</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">Skirt</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">One piece</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+						
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">Outer</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">Dress</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">Accessories</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="mainpage_mainBox">
+			<p class="mainpage_boxTitle">Shoes</p>
+			<div class="mainpage_boxContents">
+			
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+					<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<div class="fitLogo"></div>
+						<img src="img/mainHome/item_1.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+				<div class="mainpage_productDiv">
+					<div class="mainpage_imgDiv">
+						<img src="img/mainHome/item_2.png">
+					</div>
+					<div class="mainpage_infoDiv">
+						<p>베이직 가디건</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="topBtn" onclick="window.scrollTo(0,0);"><img width="15px;" src="img/anchor.png"></div>
+	</div>
+	<div data-role="page" id="threeDPage" class="eachPage">
+			<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+		<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+		<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+		<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+				<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+				<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		<div class="topBtn" onclick="window.scrollTo(0,0);"><img width="15px;" src="img/anchor.png"></div>
+		
+		
+	</div>
+	<div data-role="page" id="hotDealPage" 	class="eachPage">
+		<div class="hotContents">
+			<img src="img/hot/hot1.png">
+		</div>
+		<div class="hotContents">
+			<img src="img/hot/hot2.png">
+		</div>
+		<div class="hotContents">
+			<img src="img/hot/hot3.png">
+		</div>
+		
+		<div class="hotContents">
+			<img src="img/hot/hot1.png">
+		</div>
+		<div class="topBtn" onclick="window.scrollTo(0,0);"><img width="15px;" src="img/anchor.png"></div>
+	</div>	
+	<div data-role="page" id="myPage" class="eachPage render" data-render="padding-left,padding-right,margin-top" data-redner-ratio="height">
+		<form>
+			<div id="login_box" class="render" data-render="padding-left,padding-right">
+				<div id="userImage" class="render" data-render="margin-bottom,width,height" style="display:none;">
+					<img src="img/mypage/userSample.jpg" />
+				</div>
+				<input type="text" id="input_id" class="font-size-11 render" data-render="height,font-size,margin-bottom" placeholder="ID"/>
+				<input type="text" id="input_pw" class="font-size-11 render" data-render="height,font-size,margin-bottom" placeholder="PASSWORD"/>
+				<p class="font-size-11 t-center render" id="loginLabel1" data-render="height,font-size,margin-bottom"><span id="idSearch">아이디찾기</span> | <span id="pwSearch">비밀번호 찾기</span> | <span id="joinBtn">회원가입</span></p>
+				<p style="display:none;cursor:pointer;" class="font-size-11 t-center render" id="loginLabel2" data-render="height,font-size,margin-bottom">최환종님 | <span id="updateUserInfo">회원정보수정</span> | <span id="logoutBtn">로그아웃</span></p>
+				<div id="icon_box" class="t-center render" data-render="height,margin-bottom">
+					<img class="mr30" src="img/mypage/wechat_icon.png">
+					<img class="mr30" src="img/mypage/weibo_icon.png">
+					<img src="img/mypage/facebook_icon.png">
+				</div>
+				<div id="loginBtn" class="t-center font-size-13 render" data-render="height,margin-bottom,font-size,line-height">
+					로그인
+				</div>
+			</div>
+		</form>
+		<div id="list">
+			<div id="requestOrder" class="clear render" data-render="height,padding-left,padding-right">
+				<div class="render" data-render="line-height">
+					<p class="font-medium font-size-13 render" data-render="font-size">주문 / 배송</p>
+				</div>
+				<div class="t-right render" data-render="line-height">
+					<p class="messageBox t-center font-size-13 render" data-render="width,height,line-height,font-size">1</p>
+					<img src="img/mypage/arrow.png" class="listIcon render ml5" data-render="height,margin-left">
+				</div>
+			</div>
+			<div id="requestManyQnA" class="clear render" data-render="height,padding-left,padding-right">
+				<div class="render" data-render="line-height">
+					<p class="font-medium font-size-13 render" data-render="font-size">자주하는질문</p>
+				</div>
+				<div class="t-right render" data-render="line-height">
+					<img src="img/mypage/arrow.png" class="listIcon render ml5" data-render="height,margin-left">
+				</div>
+			</div>
+			<div id="requestOneByOne" class="clear render" data-render="height,padding-left,padding-right">
+				<div class="render" data-render="line-height">
+					<p class="font-medium font-size-13 render" data-render="font-size">1:1 문의</p>
+				</div>
+				<div class="t-right render" data-render="line-height">
+					<img src="img/mypage/arrow.png" class="listIcon render ml5" data-render="height,margin-left">
+				</div>
+			</div>
+			<div id="requestUsingApp" class="clear render" data-render="height,padding-left,padding-right">
+				<div class="render" data-render="line-height">
+					<p class="font-medium font-size-13 render" data-render="font-size">이용안내</p>
+				</div>
+				<div class="t-right render" data-render="line-height">
+					<img src="img/mypage/arrow.png" class="listIcon render ml5" data-render="height,margin-left">
+				</div>
+			</div>
+		</div>
+		<div data-role="popup" id="idSearchPopup" data-history="false" data-overlay-theme="d" class="font-size-13 render" data-render="font-size">
+			<div data-role="content">
+				<div id="popupHead" class="font-size-16 render mb10" data-render="margin-bottom,font-size">
+					핸드폰 번호로 찾기(아이디 찾기)
+				</div>
+				<div id="popupBody" class="mb10 render" data-render="margin-bottom">
+					<div id="searchWrap" class="render" data-render="height,width,line-height,border-bottom-width,padding-left,padding-right">
+						<input id="idSearchTitle" class="searchTitle t-center render" data-render="width,height,padding-left,padding-right,font-size" data-role="none" type="text" placeholder="핸드폰 번호를 입력해 주세요.">
+					</div>
+				</div>
+				<div id="pupupFoot" class="render" data-render="width,height" >
+					<div id="idSearchConfirm" class="writeBtn dib render" data-render="height,line-height,width">확인</div>
+				</div>				
+			</div>
+		</div>
+		<div data-role="popup" id="pwSearchPopup" data-history="false" data-overlay-theme="d" class="font-size-13 render" data-render="font-size">
+			<div data-role="content">
+				<div id="popupHead" class="font-size-16 render mb10" data-render="margin-bottom,font-size">
+					핸드폰 번호로 찾기(비밀번호 찾기)
+				</div>
+				<div id="popupBody" class="mb10 render" data-render="margin-bottom">
+					<div id="searchWrap" class="render" data-render="height,width,line-height,border-bottom-width,padding-left,padding-right">
+						<input id="pwSearchTitle" class="searchTitle t-center render" data-render="width,height,padding-left,padding-right,font-size" data-role="none" type="text" placeholder="핸드폰 번호를 입력해 주세요.">
+					</div>
+				</div>
+				<div id="pupupFoot" class="render" data-render="width,height" >
+					<div id="pwSearchConfirm" class="writeBtn dib render" data-render="height,line-height,width">확인</div>
+				</div>				
+			</div>
+		</div>
+		<div data-role="popup" id="updateUserInfoPopup" data-history="false" data-overlay-theme="d" class="font-size-13 render" data-render="font-size">
+			<div data-role="content">
+				<div id="popupHead" class="font-size-16 render mb10" data-render="margin-bottom,font-size">
+					회원정보 수정
+				</div>
+				<div id="popupBody" class="mb10 render" data-render="margin-bottom">
+					<div id="searchWrap" class="render" data-render="height,width,line-height,border-bottom-width,padding-left,padding-right">
+						<input id="updateUserInfoTitle" class="searchTitle t-center render" data-render="width,height,padding-left,padding-right,font-size" data-role="none" type="text" placeholder="비밀번호를 입력 해 주세요.">
+					</div>
+				</div>
+				<div id="pupupFoot" class="render" data-render="width,height" >
+					<div id="updateUserInfoConfirm" class="writeBtn dib render" data-render="height,line-height,width">확인</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="productList" class="eachPage">
+		<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+		<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+				<div class="product">
+			<div class="imgDiv">
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+				<div class="product">
+			<div class="imgDiv">
+				<div class="fitLogo"></div>
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		
+				<div class="product">
+			<div class="imgDiv">
+				<img src="img/mainHome/item_2.png">
+			</div>
+			<div class="productInfo font-size-10">
+				<div class="moreInfo">
+					<img src="img/header/likeItem.png" class="left">
+					<p class="left">231</p>
+					<p class="right">페이크 레더 점퍼</p>
+				</div>
+				<p class="price clear right">&#8361 36,000<p>
+			</div>
+		</div>
+		<div class="topBtn" onclick="window.scrollTo(0,0);"><img width="15px;" src="img/anchor.png"></div>
+		
+	</div>
+	<div data-role="page" id="zzimPage" class="eachPage render" data-render="padding-left,padding-right">
+		<hr class="cart_item_separate clear render" data-render="width" />
+		<div class="cart_item itemOn render" data-render="width,height">
+			<div class="itemPhotoArea center render" data-render="width,height,line-height">
+				<img class="cart_photo" src="img/product1.PNG">
+			</div>
+			<div class="itemOptionArea render" data-render="width,height,padding-top,padding-bottom,padding-left">
+				<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size,line-height">
+					<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼</p>
+					<div class="itemDeleteBtn right mr10 render" data-render="width,height,margin-right"></div>
+				</div>
+				<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom">
+					<img src="img/header/shoppingCart.png" class="item_cart_btn render ml10 mr10 right" data-render="height,margin-left,margin-right">
+					<p class="font-size-13 render dib middle cartText right" data-render="font-size">장바구니</p>
+				</div>
+				<div class="font-size-13 render" data-render="width,height,font-size">
+					<p class="itemPrice right render" data-render="margin-right">￦36,000</p>
+				</div>
+			</div>
+		</div>
+		<hr class="cart_item_separate clear render" data-render="width" />
+		<div class="cart_item itemOn render" data-render="width,height">
+			<div class="itemPhotoArea center render" data-render="width,height,line-height">
+				<img class="cart_photo" src="img/product1.PNG">
+			</div>
+			<div class="itemOptionArea render" data-render="width,height,padding-top,padding-bottom,padding-left">
+				<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size,line-height">
+					<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼2</p>
+					<div class="itemDeleteBtn right mr10 render" data-render="width,height,margin-right"></div>
+				</div>
+				<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom">
+					<img src="img/header/shoppingCart.png" class="item_cart_btn render ml10 mr10 right" data-render="height,margin-left,margin-right">
+					<p class="font-size-13 render dib middle cartText right" data-render="font-size">장바구니</p>
+				</div>
+				<div class="font-size-13 render" data-render="width,height,font-size">
+					<p class="itemPrice right render" data-render="margin-right">￦36,000</p>
+				</div>
+			</div>
+		</div>
+		<hr class="cart_item_separate clear render" data-render="width,border-top-width" />
+		<div class="cart_item itemOn render" data-render="width,height">
+			<div class="itemPhotoArea center render" data-render="width,height,line-height">
+				<img class="cart_photo" src="img/product1.PNG">
+			</div>
+			<div class="itemOptionArea render" data-render="width,height,padding-top,padding-bottom,padding-left">
+				<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size,line-height">
+					<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼3</p>
+					<div class="itemDeleteBtn right mr10 render" data-render="width,height,margin-right"></div>
+				</div>
+				<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom">
+					<img src="img/header/shoppingCart.png" class="item_cart_btn render ml10 mr10 right" data-render="height,margin-left,margin-right">
+					<p class="font-size-13 render dib middle cartText right" data-render="font-size">장바구니</p>
+				</div>
+				<div class="font-size-13 render" data-render="width,height,font-size">
+					<p class="itemPrice right render" data-render="margin-right">￦36,000</p>
+				</div>
+			</div>
+		</div>
+		<hr class="cart_item_separate clear render" data-render="width" />
+		<div class="t-center">
+			<img class="bottomAnchor render" src="img/anchor.png" data-render="width,margin-top,margin-bottom" onclick="window.scrollTo(0,0);" />
+		</div>
+		
+		
+		
+		
+		<!-- 
+		<a onclick="window.scrollTo(0,0);"><img style="width: 40px; position: fixed; left: 85%; top: 80%; z-index: 1;" src = "img/top.png"></a>
+
+		<div class="cart_item" id="f234a2b">
+			<div class="cart_imgDiv">
+			 	<img class="cart_photo" src="img/product1.PNG">
+				<div class="fitLogo"></div>
+			</div>
+			<div class="cart_infoDiv">
+				<p style="font-size: 13px; color: #434343; font-weight: bold;"> 체크무늬 솜사탕 코트트</p>
+			 	<p style="font-size: 11px; color: #a0a0a0;">36,000원</p>
+			 	<img class="cart_cancleBtn" src="img/cancel.png">
+			 	<div class="cart_btnDiv">
+			 		<img src="img/buyBtn.png"><img src="img/carBtn.png">
+			 	</div>
+			 	
+			</div>
+		</div>
+		
+		<div class="cart_item" id="f234a44">
+			<div class="cart_imgDiv">
+			 	<img class="cart_photo" src="img/product1.PNG">
+				<div class="fitLogo"></div>
+			</div>
+			<div class="cart_infoDiv">
+				<p style="font-size: 13px; color: #434343; font-weight: bold;"> 체크무늬 솜사탕 코트트</p>
+			 	<p style="font-size: 11px; color: #a0a0a0;">36,000원</p>
+			 	<img class="cart_cancleBtn" src="img/cancel.png">
+			 	<div class="cart_btnDiv">
+			 		<img src="img/buyBtn.png"><img src="img/carBtn.png">
+			 	</div>
+			 	
+			</div>
+		</div>
+		
+				<div class="cart_item">
+			<div class="cart_imgDiv">
+			 	<img class="cart_photo" src="img/product1.PNG">
+				<div class="fitLogo"></div>
+			</div>
+			<div class="cart_infoDiv">
+				<p style="font-size: 13px; color: #434343; font-weight: bold;"> 체크무늬 솜사탕 코트트</p>
+			 	<p style="font-size: 11px; color: #a0a0a0;">36,000원</p>
+			 	<img class="cart_cancleBtn" src="img/cancel.png">
+			 	<div class="cart_btnDiv">
+			 		<img src="img/buyBtn.png"><img src="img/carBtn.png">
+			 	</div>
+			</div>
+		</div>
+		
+				<div class="cart_item">
+			<div class="cart_imgDiv">
+			 	<img class="cart_photo" src="img/product1.PNG">
+				<div class="fitLogo"></div>
+			</div>
+			<div class="cart_infoDiv">
+				<p style="font-size: 13px; color: #434343; font-weight: bold;"> 체크무늬 솜사탕 코트트</p>
+			 	<p style="font-size: 11px; color: #a0a0a0;">36,000원</p>
+			 	<img class="cart_cancleBtn" src="img/cancel.png">
+			 	<div class="cart_btnDiv">
+			 		<img src="img/buyBtn.png"><img src="img/carBtn.png">
+			 	</div>
+			 	
+			</div>
+		</div>
+		
+				<div class="cart_item">
+			<div class="cart_imgDiv">
+			 	<img class="cart_photo" src="img/product1.PNG">
+				<div class="fitLogo"></div>
+			</div>
+			<div class="cart_infoDiv">
+				<p style="font-size: 13px; color: #434343; font-weight: bold;"> 체크무늬 솜사탕 코트트</p>
+			 	<p style="font-size: 11px; color: #a0a0a0;">36,000원</p>
+			 	<img class="cart_cancleBtn" src="img/cancel.png">
+			 	<div class="cart_btnDiv">
+			 		<img src="img/buyBtn.png"><img src="img/carBtn.png">
+			 	</div>
+			 	
+			</div>
+		</div>
+		-->
+	</div>
+
+	<div data-role="page" id="cartPage" class="eachPage render" data-render="padding-left,padding-right">
+		<div class="mb24 render" data-render="margin-bottom">
+			<p class="font-light font-size-16 render" data-render="font-size,width,height,margin-top,margin-bottom,line-height">웨딩상품</p>
+			<hr class="cart_item_separate clear render" data-render="width,border-top-width,margin-top" />
+			<div class="cart_item itemOn render" data-render="width,height,margin-bottom">
+				<div class="itemPhotoArea center render" data-render="width,height,line-height">
+					<img class="cart_photo" src="img/product1.PNG">
+				</div>
+				<div class="itemOptionArea render" data-render="width,height,padding-top,padding-bottom,padding-left">
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size,line-height">
+						<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼</p>
+					</div>
+					<div class="mb10 render" data-render="width,height,line-height,margin-bottom">
+						<ul id="selectSize" class="font-size-13 render" data-render="font-size">
+							<li class="render" data-render="width,height,margin-right">XS</li>
+							<li class="render" data-render="width,height,margin-right">S</li>
+							<li class="render" data-render="width,height,margin-right">M</li>
+							<li class="render" data-render="width,height,margin-right">XL</li>
+							<li class="render" data-render="width,height,margin-right">L</li>
+						</ul>
+					</div>
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom">
+						<img src="img/color_ex1.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex2.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex3.png" class="select_color_btn render mr10" data-render="height,margin-right">
+					</div>
+					<div class="font-size-13 render" data-render="width,height,font-size">
+						<img src="img/select_count_down.png" class="select_count_btn render mr10 numDown_w" data-render="height,margin-right">
+						<p class="font-size-13 render dib cartAmount" data-render="font-size">1</p>
+						<img src="img/select_count_up.png" class="select_count_btn render ml10 numUp_w" data-render="height,margin-left">
+						<p class="itemPrice right render" data-render="margin-right" style="color:red;">상담진행</p>
+					</div>
+				</div>
+			</div>
+			<hr class="cart_item_separate clear render" data-render="width,border-top-width,margin-top" />
+			<div class="cart_item itemOn render" data-render="width,height,margin-bottom">
+				<div class="itemPhotoArea center render" data-render="width,height,line-height">
+					<img class="cart_photo" src="img/product1.PNG">
+				</div>
+				<div class="itemOptionArea render" data-render="width,height,padding-top,padding-bottom,padding-left">
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size,line-height">
+						<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼</p>
+					</div>
+					<div class="mb10 render" data-render="width,height,line-height,margin-bottom">
+						<ul id="selectSize" class="font-size-13 render" data-render="font-size">
+							<li class="render" data-render="width,height,margin-right">XS</li>
+							<li class="render" data-render="width,height,margin-right">S</li>
+							<li class="render" data-render="width,height,margin-right">M</li>
+							<li class="render" data-render="width,height,margin-right">XL</li>
+							<li class="render" data-render="width,height,margin-right">L</li>
+						</ul>
+					</div>
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size">
+						<img src="img/color_ex1.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex2.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex3.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<p class="itemPrice right render" data-render="margin-right">결제</p>
+					</div>
+					<div class="font-size-13 render" data-render="width,height,font-size">
+						<img src="img/select_count_down.png" class="select_count_btn render mr10 numDown_w" data-render="height,margin-right">
+						<p class="font-size-13 render dib cartAmount" data-render="font-size">1</p>
+						<img src="img/select_count_up.png" class="select_count_btn render ml10 numUp_w" data-render="height,margin-left">
+						<p class="itemPrice right render" data-render="margin-right">￦39,000</p>
+					</div>
+				</div>
+			</div>
+			<hr class="cart_item_separate clear render" data-render="width,border-top-width,margin-top" />
+		</div>
+		
+		<div class="basicItem">
+			<p class="font-light font-size-16 render" data-render="font-size,height,margin-top,margin-bottom,line-height">일반상품</p>
+			<hr class="cart_item_separate clear render" data-render="width,border-top-width,margin-top" />
+			<div class="cart_item itemOn render" data-render="width,height,margin-bottom" data-item-idx="1">
+				<div class="itemPhotoArea center render" data-render="width,height,line-height">
+					<img class="cart_photo" src="img/product1.PNG">
+				</div>
+				<div class="itemOptionArea render" data-render="width,height,padding-top,padding-bottom,padding-left">
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size,line-height">
+						<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼</p>
+						<div class="itemDeleteBtn right mr10 render" data-render="width,height,margin-right"></div>
+						<div class="itemOptionCheckBtn right mr10 render" data-render="width,height,margin-right"></div>
+					</div>
+					<div class="mb10 render" data-render="width,height,line-height,margin-bottom">
+						<ul id="selectSize" class="font-size-13 render" data-render="font-size">
+							<li class="render" data-render="width,height,margin-right">XS</li>
+							<li class="render" data-render="width,height,margin-right">S</li>
+							<li class="render" data-render="width,height,margin-right">M</li>
+							<li class="render" data-render="width,height,margin-right">XL</li>
+							<li class="render" data-render="width,height,margin-right">L</li>
+						</ul>
+					</div>
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom">
+						<img src="img/color_ex1.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex2.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex3.png" class="select_color_btn render mr10" data-render="height,margin-right">
+					</div>
+					<div class="font-size-13 render" data-render="width,height,font-size">
+						<img src="img/select_count_down.png" class="select_count_btn render mr10 numDown" data-render="height,margin-right">
+						<p class="font-size-13 render dib cartAmount" data-render="font-size">1</p>
+						<img src="img/select_count_up.png" class="select_count_btn render ml10 numUp" data-render="height,margin-left">
+						<p class="itemPrice right render" data-render="margin-right">￦39,000</p>
+					</div>
+				</div>
+			</div>
+			<hr class="cart_item_separate clear render" data-render="width,border-top-width,margin-top" />
+			<div class="cart_item itemOn render" data-render="width,height,margin-bottom" data-item-idx="2">
+				<div class="itemPhotoArea center render" data-render="width,height,line-height">
+					<img class="cart_photo" src="img/product1.PNG">
+				</div>
+				<div class="itemOptionArea render" data-render="width,height,padding-top,padding-bottom,padding-left">
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size,line-height">
+						<p class="font-size-13 render dib" data-render="font-size">언밸런스 가디건</p>
+						<div class="itemOptionCheckBtn right mr10 render" data-render="width,height,margin-right"></div>
+					</div>
+					<div class="mb10 render" data-render="width,height,line-height,margin-bottom">
+						<ul id="selectSize" class="font-size-13 render" data-render="font-size">
+							<li class="render" data-render="width,height,margin-right">XS</li>
+							<li class="render" data-render="width,height,margin-right">S</li>
+							<li class="render" data-render="width,height,margin-right">M</li>
+							<li class="render" data-render="width,height,margin-right">XL</li>
+							<li class="render" data-render="width,height,margin-right">L</li>
+						</ul>
+					</div>
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom">
+						<img src="img/color_ex1.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex2.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex3.png" class="select_color_btn render mr10" data-render="height,margin-right">
+					</div>
+					<div class="font-size-13 render" data-render="width,height,font-size">
+						<img src="img/select_count_down.png" class="select_count_btn render mr10 numDown" data-render="height,margin-right">
+						<p class="font-size-13 render dib cartAmount" data-render="font-size">2</p>
+						<img src="img/select_count_up.png" class="select_count_btn render ml10 numUp" data-render="height,margin-left">
+						<p class="itemPrice right render" data-render="margin-right">￦36,000</p>
+					</div>
+				</div>
+			</div>
+			<hr class="cart_item_separate clear render" data-render="width,border-top-width,margin-top" />
+			<div class="cart_item itemOff render" data-render="width,height,margin-bottom" data-item-idx="3">
+				<div class="itemPhotoArea center render" data-render="width,height,line-height">
+					<img class="cart_photo" src="img/product1.PNG">
+				</div>
+				<div class="itemOptionArea render" data-render="width,height,padding-top,padding-bottom,padding-left">
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom,font-size,line-height">
+						<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼2</p>
+						<div class="itemOptionCheckBtn right mr10 render" data-render="width,height,margin-right"></div>
+					</div>
+					<div class="mb10 render" data-render="width,height,line-height,margin-bottom">
+						<ul id="selectSize" class="font-size-13 render" data-render="font-size">
+							<li class="render" data-render="width,height,margin-right">XS</li>
+							<li class="render" data-render="width,height,margin-right">S</li>
+							<li class="render" data-render="width,height,margin-right">M</li>
+							<li class="render" data-render="width,height,margin-right">XL</li>
+							<li class="render" data-render="width,height,margin-right">L</li>
+						</ul>
+					</div>
+					<div class="font-size-13 mb10 render" data-render="width,height,margin-bottom">
+						<img src="img/color_ex1.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex2.png" class="select_color_btn render mr10" data-render="height,margin-right">
+						<img src="img/color_ex3.png" class="select_color_btn render mr10" data-render="height,margin-right">
+					</div>
+					<div class="font-size-13 render" data-render="width,height,font-size">
+						<img src="img/select_count_down.png" class="select_count_btn render mr10 numDown" data-render="height,margin-right">
+						<p class="font-size-13 render dib cartAmount" data-render="font-size">1</p>
+						<img src="img/select_count_up.png" class="select_count_btn render ml10 numUp" data-render="height,margin-left">
+						<p class="itemPrice right render" data-render="margin-right">￦15,000</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<hr class="cart_item_separate clear render" data-render="width,border-top-width,margin-top" />
+		<div class="cart_item cart_item_all render" data-render="width,height,margin-top,margin-bottom">
+			<div class="itemPhotoArea center render" data-render="width,height"></div>
+			<div class="itemOptionArea render" data-render="width,height,line-height,padding-top,padding-bottom,padding-left">
+				<div id="item_price_1" class="dynamic_price item_price_list font-size-13 mb10 render" data-render="width,height,margin-bottom">
+					<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼 <span style="display:none;">x</span><span style="display:none;">2</span></p>
+					<p class="font-size-13 render dib fr" data-render="font-size">￦39,000</p>
+				</div>
+				<div id="item_price_2" class="dynamic_price item_price_list font-size-13 mb10 render" data-render="width,height,margin-bottom">
+					<p class="font-size-13 render dib" data-render="font-size">언밸런스 가디건 <span>x</span><span>2</span></p>
+					<p class="font-size-13 render dib fr" data-render="font-size">￦72,000</p>
+				</div>
+				<div id="item_price_3" class="dynamic_price item_price_list font-size-13 mb10 render" data-render="width,height,margin-bottom" style="display:none;">
+					<p class="font-size-13 render dib" data-render="font-size">페이크 레더 점퍼2 <span style="display:none;">x</span><span style="display:none;">2</span></p>
+					<p class="font-size-13 render dib fr" data-render="font-size">￦15,000</p>
+				</div>
+				<div id="delivery_price" class="item_price_list font-size-13 mb10 render" data-render="width,height,margin-bottom">
+					<p class="font-size-13 render dib" data-render="font-size">배송료</p>
+					<p class="font-size-13 render dib fr" data-render="font-size">￦2,500</p>
+				</div>
+				<hr class="cart_item_separate last-separate clear render" data-render="width,margin-top,margin-bottom,border-top-width" />
+				<div class="mb10 render" data-render="width,height,margin-bottom">
+					<p class="font-size-13 render dib" data-render="font-size">총계</p>
+					<p id="item_price_sum" class="font-medium font-size-18 render dib fr" data-render="font-size">￦113,500</p>
+				</div>
+			</div>
+		</div>
+		<div class="purchaseBtn font-medium font-size-13 render" data-render="margin-bottom,font-size">
+			<div class="dib fr mb20 render" data-render="height,line-height,margin-bottom">구매하기</div>
+		</div>
+	
+	<!-- 
+		<div class="cart_item" id="f234a44">
+			<div class="cart_imgDiv">
+				<img class="cart_photo" src="img/product1.PNG">
+				<div class="fitLogo"></div>
+			</div>
+			<div class="cart_infoDiv">
+				<p style="font-size: 13px; color: #434343; font-weight: bold;">
+					체크무늬 솜사탕 코트트</p>
+				<p style="font-size: 11px; color: #a0a0a0;">36,000원</p><span class="realPrice" >36000</span>
+				<img class="cart_cancleBtn" src="img/cancel.png" onclick='removeCart("f234a44")'>
+				<div class="cart_btnDiv">
+					<img src="img/buyBtn2.png" style="width: 100%;">
+				</div>
+			</div>
+		</div>
+		<div class="cart_item" id="f234a45">
+			<div class="cart_imgDiv">
+				<img class="cart_photo" src="img/product1.PNG">
+				<div class="fitLogo"></div>
+			</div>
+			<div class="cart_infoDiv">
+				<p style="font-size: 13px; color: #434343; font-weight: bold;">
+					체크무늬 솜사탕 코트트</p>
+				<p style="font-size: 11px; color: #a0a0a0;">36,000원<span class="realPrice" >36000</span></p>
+				<img class="cart_cancleBtn" src="img/cancel.png" onclick='removeCart("f234a45")'>
+				<div class="cart_btnDiv">
+					<img src="img/buyBtn2.png" style="width: 100%;">
+				</div>
+			</div>
+		</div>
+		<div id="cart_cartDiv" >
+			<p>상품금액 </p> <span style="float: right;"><span id="sumPrice">0</span> 원</span><br/>
+			<p>배송료</p> <span style="float: right;"><span id="deliveryPrice">15000</span> 원</span>
+			<p class="line" style="display: block;"></p>
+			<p class="bold f14">결제하실 금액</p> <span class="bold f14" style="float: right; color:#f56c74; "><span id="totalPrice"">0</span> 원</span>
+		</div>
+		<Button id ="cart_buyBtn">구매하기</Button>
+ -->
+	</div>
+	
+	<div data-role="page" id="codiPage" class="eachPage">
+		<div id="preView" style="position: fixed; z-index: 1;">
+			<div id="leftDoor" class="door" style="float: left;">
+				<p class="doorHand" style="right: 0px;"></p>
+			</div>
+			<div id="rightDoor" class="door" style="float: right;">
+				<p class="doorHand"></p>
+			</div>
+		</div>
+
+		<div id="tabDiv">
+			<div>찜한상품</div>
+			<div>장바구니</div>
+		</div>
+		<p style="width: 100%; line-height: 400px; text-align: center;"> 준비중입니다..</p>
+	</div>
+	
+	
+	<div data-role="footer" id="footer" data-position="fixed"
+		data-tap-toggle="false">
+		<div id="footBalckDiv" style="position:fixed;width:100%;height:100%; background-color: black; opacity:0.8;border:none; display: none;" onclick="stopSearchBar()"></div>
+		
+		<div class="eachFoot">
+			<img id="homeBtn" class="footerIcon" src=" img/footer/homeClick.png"
+			onclick="homeBtn_Handler()"> 
+		</div>
+		<div class="eachFoot">
+			<img id="categoryBtn"
+			class="footerIcon" src=" img/footer/category.png"
+			onclick="categoryBtn_Handler()">
+		</div>
+		<div class="eachFoot">
+			<img id="threeDBtn"
+			class="footerIcon" src=" img/footer/threeD.png"
+			onclick="threeDBtn_Handler()">		
+		</div>
+		<div class="eachFoot">
+			<img id="hotDealBtn"
+			class="footerIcon" src=" img/footer/hotDeal.png"
+			onclick="hotDealBtn_Handler()">
+		</div>
+		<div class="eachFoot">
+			<img id="myPageBtn"
+			class="footerIcon" src=" img/footer/myPage.png"
+			onclick="myPageBtn_Handler()">
+		</div>
+	</div>
+</body>
+</html>
